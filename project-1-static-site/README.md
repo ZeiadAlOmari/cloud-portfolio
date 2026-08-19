@@ -9,7 +9,7 @@ DNS-ready architecture, and reproducible deployments.
 
 ## Architecture
 
-![Architecture Diagram](../diagrams/project1-architecture.drawio.png)
+![Architecture Diagram](https://raw.githubusercontent.com/ZeiadAlOmari/cloud-portfolio/main/project-1-static-site/diagrams/project1-architecture.drawio.png)
 
 ### Components
 
