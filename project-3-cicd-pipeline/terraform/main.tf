@@ -65,20 +65,17 @@ resource "aws_instance" "cicd" {
 
   user_data = <<-EOF
     #!/bin/bash
+    set -e
+
     dnf update -y
     dnf install -y docker git
     systemctl enable docker
     systemctl start docker
     usermod -aG docker ec2-user
 
-    # Install Docker Compose
-    curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
-    chmod +x /usr/local/bin/docker-compose
-
     # Clone the repo
     cd /opt
     git clone https://github.com/ZeiadAlOmari/cloud-portfolio.git app
-    chown -R ec2-user:ec2-user /opt/app
 
     # Build and run the container
     cd /opt/app/project-3-cicd-pipeline/app
