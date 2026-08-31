@@ -4,6 +4,8 @@ A fully serverless, event-driven data pipeline built on AWS and provisioned enti
 
 ## Architecture
 
+![Architecture Diagram](diagrams/project4-architecture.drawio.png)
+
     Client
       |
       v
