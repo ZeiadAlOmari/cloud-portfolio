@@ -39,6 +39,8 @@ Two Flask microservices (`web` and `api`) deployed on a lightweight Kubernetes c
 
 A single container proves you can run Docker. Two services that talk to each other over the network prove the actual point of Kubernetes: service discovery and load balancing. `web` calls `api` by name (`http://api-service:5000`) -- Kubernetes' internal DNS resolves that name to whichever `api` pod is available, with zero hardcoded IPs.
 
+Worth noting: these services are intentionally minimal. Their job is to make Kubernetes' orchestration behavior -- load balancing, service discovery, self-healing -- observable through pod hostnames in the responses, not to implement real business logic.
+
 ## Design Decisions
 
 **Why k3s instead of AWS EKS?**
