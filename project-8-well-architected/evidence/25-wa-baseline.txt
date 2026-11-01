@@ -1,0 +1,5 @@
+Answered 66 questions (baseline).
+Milestone 1 created: M1 Baseline (pre-remediation)
+Risk counts, Milestone 1
+  wellarchitected  {"HIGH": 40, "MEDIUM": 16, "NONE": 1, "NOT_APPLICABLE": 0, "UNANSWERED": 0}
+  serverless       {"HIGH": 7, "MEDIUM": 2, "NONE": 0, "NOT_APPLICABLE": 0, "UNANSWERED": 0}

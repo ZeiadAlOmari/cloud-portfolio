@@ -1,0 +1,18 @@
+== AFTER: direct S3 website endpoint (expect 404 = hosting removed)
+404
+== AFTER: direct S3 REST object (expect 403 = bypass blocked)
+403
+== AFTER: CloudFront root (expect 200)
+200
+== AFTER: CloudFront missing path (expect 200 = error response)
+200
+== AFTER: HTTP redirect (expect 301)
+301
+== AFTER: HTTP/3 advertised (expect alt-svc h3)
+alt-svc: h3=":443"; ma=86400
+== PUBLIC ACCESS BLOCK
+True	True	True	True
+== POLICY STATUS (expect IsPublic False)
+False
+== DISTRIBUTION
+2	http2and3	E3UFJB1YUS5U4Z	portfolio-site-00c164mo.s3.us-east-1.amazonaws.com	Deployed

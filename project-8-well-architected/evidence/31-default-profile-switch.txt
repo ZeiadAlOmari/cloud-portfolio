@@ -1,0 +1,9 @@
+== .bashrc
+export AWS_PROFILE=console-admin-tf
+== DEFAULT CLI IDENTITY
+arn:aws:iam::<ACCOUNT_ID>:user/admin
+key prefix: ASIA
+== TERRAFORM (P1 read-only plan)
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.

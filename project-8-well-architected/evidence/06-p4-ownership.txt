@@ -1,0 +1,11 @@
+== CFN STACKS us-east-1
+aws-sam-cli-managed-default	2026-08-30T13:55:55.417000+00:00
+== TERRAFORM STATES
+/home/z/cloud-portfolio/project-4-serverless-pipeline/terraform/terraform.tfstate managed=21 refs_serverless_process=10
+/home/z/cloud-portfolio/project-1-static-site/terraform/terraform.tfstate managed=7 refs_serverless_process=0
+/home/z/cloud-portfolio/project-5-kubernetes/terraform/terraform.tfstate managed=0 refs_serverless_process=0
+/home/z/cloud-portfolio/project-3-cicd-pipeline/terraform/terraform.tfstate managed=0 refs_serverless_process=0
+/home/z/cloud-portfolio/terraform.tfstate managed=0 refs_serverless_process=0
+/home/z/cloud-portfolio/project-7-multi-region-dr/terraform/terraform.tfstate managed=0 refs_serverless_process=0
+/home/z/cloud-portfolio/project-2-multi-tier/terraform/terraform.tfstate managed=0 refs_serverless_process=0
+/home/z/cloud-portfolio/project-6-security/terraform/terraform.tfstate managed=0 refs_serverless_process=0

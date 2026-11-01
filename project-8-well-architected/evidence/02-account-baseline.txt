@@ -1,0 +1,19 @@
+== PASSWORD POLICY
+
+aws: [ERROR]: An error occurred (NoSuchEntity) when calling the GetAccountPasswordPolicy operation: The Password Policy with domain name <ACCOUNT_ID> cannot be found.
+== CLOUDTRAIL TRAILS
+{
+    "trailList": []
+}
+== ACCESS ANALYZERS us-east-1
+{
+    "analyzers": []
+}
+== IAM SUMMARY
+{
+    "Users": 1,
+    "Roles": 7,
+    "Policies": 0,
+    "MFADevices": 2,
+    "AccountMFAEnabled": 1
+}

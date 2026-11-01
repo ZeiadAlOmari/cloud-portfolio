@@ -1,0 +1,10 @@
+== BUDGETS
+My Monthly Cost Budget	COST	MONTHLY	5.0	USD	0.017
+== BUDGET NOTIFICATIONS
+== CLOUDTRAIL EVENT HISTORY (free, 90 days) - our remediation calls
+2026-10-26T21:16:52+03:00	CreateAnalyzer	admin
+2026-10-26T21:16:06+03:00	UpdateAccountPasswordPolicy	admin
+2026-10-26T21:09:02+03:00	CreateOriginAccessControl	admin
+ACTUAL	GREATER_THAN	100.0	None
+ACTUAL	GREATER_THAN	80.0	None
+FORECASTED	GREATER_THAN	100.0	None

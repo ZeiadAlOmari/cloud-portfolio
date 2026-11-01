@@ -1,0 +1,24 @@
+== SAM STACK
+aws: [ERROR]: An error occurred (ValidationError) when calling the DescribeStacks operation: Stack with id aws-sam-cli-managed-default does not exist
+== SAM BUCKET
+aws: [ERROR]: An error occurred (404) when calling the HeadBucket operation: Not Found
+== RESOURCE EXPLORER INDEXES
+eu-central-1	LOCAL
+eu-north-1	LOCAL
+== RESOURCES BY REGION/TYPE (count region type)
+1 global budgets:budget
+1 global cloudfront:distribution
+1 global iam:mfa
+8 global iam:role
+1 global iam:user
+3 us-east-1 apigateway:apis/integrations
+4 us-east-1 apigateway:apis/routes
+1 us-east-1 apigateway:restapis/resources/methods
+1 us-east-1 ec2:dhcp-options
+1 us-east-1 ec2:internet-gateway
+1 us-east-1 ec2:network-acl
+1 us-east-1 ec2:route-table
+1 us-east-1 ec2:security-group
+6 us-east-1 ec2:subnet
+1 us-east-1 rds:pg
+1 us-east-1 s3:bucket

@@ -1,0 +1,7 @@
+{
+    "UNANSWERED": 0,
+    "HIGH": 39,
+    "MEDIUM": 17,
+    "NONE": 1,
+    "NOT_APPLICABLE": 0
+}

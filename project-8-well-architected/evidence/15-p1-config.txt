@@ -1,0 +1,47 @@
+== PUBLIC ACCESS BLOCK
+{
+    "PublicAccessBlockConfiguration": {
+        "BlockPublicAcls": false,
+        "IgnorePublicAcls": false,
+        "BlockPublicPolicy": false,
+        "RestrictPublicBuckets": false
+    }
+}
+== BUCKET POLICY
+{"Version":"2012-10-17","Statement":[{"Sid":"PublicReadGetObject","Effect":"Allow","Principal":"*","Action":"s3:GetObject","Resource":"arn:aws:s3:::portfolio-site-00c164mo/*"}]}
+== WEBSITE
+{
+    "IndexDocument": {
+        "Suffix": "index.html"
+    },
+    "ErrorDocument": {
+        "Key": "index.html"
+    }
+}
+== VERSIONING
+== ENCRYPTION
+[
+    {
+        "SSEAlgorithm": "AES256"
+    }
+]
+== CLOUDFRONT CONFIG
+{
+    "Origins": [
+        {
+            "Domain": "portfolio-site-00c164mo.s3-website-us-east-1.amazonaws.com",
+            "OriginProtocol": "http-only",
+            "OAC": ""
+        }
+    ],
+    "ViewerPolicy": "redirect-to-https",
+    "Compress": true,
+    "MinTLS": "TLSv1",
+    "DefaultCert": true,
+    "Logging": false,
+    "PriceClass": "PriceClass_100",
+    "HttpVersion": "http2",
+    "WAF": "",
+    "RootObject": "index.html",
+    "Aliases": null
+}

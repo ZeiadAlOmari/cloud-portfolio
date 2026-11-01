@@ -1,0 +1,13 @@
+== LAMBDA
+== ESM
+== SQS
+None
+== DYNAMODB
+== HTTP APIS
+== IAM ROLE
+
+aws: [ERROR]: An error occurred (NoSuchEntity) when calling the GetRole operation: The role with name serverless-lambda-role cannot be found.
+== LOG GROUPS
+/aws/lambda/serverless-ingest	None	4838
+/aws/lambda/serverless-process	None	3208
+/aws/lambda/serverless-query	None	5656

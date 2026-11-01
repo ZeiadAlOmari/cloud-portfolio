@@ -1,0 +1,7 @@
+Updated 8 questions (post-remediation).
+Milestone 2 created: M2 Post-remediation (P1 OAC, password policy, Access Analyzer, leftover cleanup)
+Risk counts, Milestone 2
+  wellarchitected  {"HIGH": 39, "MEDIUM": 17, "NONE": 1, "NOT_APPLICABLE": 0, "UNANSWERED": 0}
+  serverless       {"HIGH": 7, "MEDIUM": 2, "NONE": 0, "NOT_APPLICABLE": 0, "UNANSWERED": 0}
+Saved wa-tool/lens-review-report-wellarchitected.pdf
+Saved wa-tool/lens-review-report-serverless.pdf

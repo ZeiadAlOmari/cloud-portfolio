@@ -1,13 +1,19 @@
-output "website_bucket_name" {
-  description = "Name of the S3 bucket"
+output "bucket_name" {
+  description = "Private S3 bucket holding the site content"
   value       = aws_s3_bucket.website.id
 }
 
-output "website_url" {
-  description = "S3 static website URL"
-  value       = aws_s3_bucket_website_configuration.website.website_endpoint
+output "cloudfront_distribution_id" {
+  description = "CloudFront distribution ID"
+  value       = aws_cloudfront_distribution.website.id
 }
-output "cloudfront_url" {
-  description = "CloudFront distribution URL"
+
+output "cloudfront_domain_name" {
+  description = "CloudFront domain name"
+  value       = aws_cloudfront_distribution.website.domain_name
+}
+
+output "website_url" {
+  description = "Public site URL (HTTPS via CloudFront)"
   value       = "https://${aws_cloudfront_distribution.website.domain_name}"
 }

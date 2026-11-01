@@ -1,0 +1,14 @@
+random_string.bucket_suffix: Refreshing state... [id=00c164mo]
+data.aws_caller_identity.current: Reading...
+aws_s3_bucket.website: Refreshing state... [id=portfolio-site-00c164mo]
+data.aws_caller_identity.current: Read complete after 0s [id=<ACCOUNT_ID>]
+aws_cloudfront_origin_access_control.website: Refreshing state... [id=E3UFJB1YUS5U4Z]
+aws_s3_object.index: Refreshing state... [id=index.html]
+aws_cloudfront_distribution.website: Refreshing state... [id=E23VJY9UXT8NRG]
+aws_s3_bucket_policy.website: Refreshing state... [id=portfolio-site-00c164mo]
+aws_s3_bucket_public_access_block.website: Refreshing state... [id=portfolio-site-00c164mo]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.

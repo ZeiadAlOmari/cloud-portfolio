@@ -1,0 +1,5 @@
+{
+    "UserId": "AIDA<REDACTED>",
+    "Account": "<ACCOUNT_ID>",
+    "Arn": "arn:aws:iam::<ACCOUNT_ID>:user/admin"
+}

@@ -1,0 +1,7 @@
+== BUCKET: aws-sam-cli-managed-default-samclisourcebucket-vu8oewmfiuo4
+SamCliSourceBucket	AWS::S3::Bucket
+SamCliSourceBucketBucketPolicy	AWS::S3::BucketPolicy
+== VERSIONS
+8
+== DELETE MARKERS
+8

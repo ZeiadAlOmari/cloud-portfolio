@@ -1,0 +1,19 @@
+== 1. Stray root terraform.tfstate (must contain no resources)
+removed (0 resources)
+== 2. .gitignore: enable *tfplan*
+enabled
+32:# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
+33:*tfplan*
+== 3. Empty evidence file 19-p1-apply.txt
+removed project-8-well-architected/evidence/19-p1-apply.txt
+removed project-8-well-architected/evidence/raw/19-p1-apply.txt
+== 4. P1 README: mark OAC done + add Project 8 update
+line updated
+update section appended
+== 5. git status
+ M .gitignore
+ M project-1-static-site/README.md
+ M project-1-static-site/terraform/cloudfront.tf
+ M project-1-static-site/terraform/outputs.tf
+ M project-1-static-site/terraform/s3.tf
+?? project-8-well-architected/

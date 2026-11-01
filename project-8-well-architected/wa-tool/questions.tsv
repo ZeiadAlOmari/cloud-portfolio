@@ -1,0 +1,411 @@
+wellarchitected	costOptimization	cloud-financial-management	How do you implement cloud financial management?	cost_cloud_financial_management_function	Establish ownership of cost optimization
+wellarchitected	costOptimization	cloud-financial-management	How do you implement cloud financial management?	cost_cloud_financial_management_partnership	Establish a partnership between finance and technology
+wellarchitected	costOptimization	cloud-financial-management	How do you implement cloud financial management?	cost_cloud_financial_management_budget_forecast	Establish cloud budgets and forecasts
+wellarchitected	costOptimization	cloud-financial-management	How do you implement cloud financial management?	cost_cloud_financial_management_cost_awareness	Implement cost awareness in your organizational processes
+wellarchitected	costOptimization	cloud-financial-management	How do you implement cloud financial management?	cost_cloud_financial_management_proactive_process	Monitor cost proactively
+wellarchitected	costOptimization	cloud-financial-management	How do you implement cloud financial management?	cost_cloud_financial_management_scheduled	Keep up-to-date with new service releases
+wellarchitected	costOptimization	cloud-financial-management	How do you implement cloud financial management?	cost_cloud_financial_management_quantify_value	Quantify business value from cost optimization
+wellarchitected	costOptimization	cloud-financial-management	How do you implement cloud financial management?	cost_cloud_financial_management_usage_report	Report and notify on cost optimization
+wellarchitected	costOptimization	cloud-financial-management	How do you implement cloud financial management?	cost_cloud_financial_management_culture	Create a cost-aware culture
+wellarchitected	costOptimization	cloud-financial-management	How do you implement cloud financial management?	cost_cloud_financial_management_no	None of these
+wellarchitected	costOptimization	govern-usage	How do you govern usage?	cost_govern_usage_policies	Develop policies based on your organization requirements
+wellarchitected	costOptimization	govern-usage	How do you govern usage?	cost_govern_usage_goal_target	Implement goals and targets
+wellarchitected	costOptimization	govern-usage	How do you govern usage?	cost_govern_usage_account_structure	Implement an account structure
+wellarchitected	costOptimization	govern-usage	How do you govern usage?	cost_govern_usage_controls	Implement cost controls
+wellarchitected	costOptimization	govern-usage	How do you govern usage?	cost_govern_usage_groups_roles	Implement groups and role
+wellarchitected	costOptimization	govern-usage	How do you govern usage?	cost_govern_usage_track_lifecycle	Track project lifecycle
+wellarchitected	costOptimization	govern-usage	How do you govern usage?	cost_govern_usage_no	None of these
+wellarchitected	costOptimization	monitor-usage	How do you monitor your cost and usage?	cost_monitor_usage_detailed_source	Configure detailed information sources
+wellarchitected	costOptimization	monitor-usage	How do you monitor your cost and usage?	cost_monitor_usage_define_attribution	Identify cost attribution categories
+wellarchitected	costOptimization	monitor-usage	How do you monitor your cost and usage?	cost_monitor_usage_define_kpi	Establish organization metrics
+wellarchitected	costOptimization	monitor-usage	How do you monitor your cost and usage?	cost_monitor_usage_config_tools	Configure billing and cost management tools
+wellarchitected	costOptimization	monitor-usage	How do you monitor your cost and usage?	cost_monitor_usage_org_information	Add organization information to cost and usage
+wellarchitected	costOptimization	monitor-usage	How do you monitor your cost and usage?	cost_monitor_usage_allocate_outcome	Allocate costs based on workload metrics
+wellarchitected	costOptimization	monitor-usage	How do you monitor your cost and usage?	cost_monitor_usage_no	None of these
+wellarchitected	costOptimization	decomissioning-resources	How do you decommission resources?	cost_decomissioning_resources_track	Track resources over their life time
+wellarchitected	costOptimization	decomissioning-resources	How do you decommission resources?	cost_decomissioning_resources_implement_process	Implement a decommissioning process
+wellarchitected	costOptimization	decomissioning-resources	How do you decommission resources?	cost_decomissioning_resources_decommission	Decommission resources
+wellarchitected	costOptimization	decomissioning-resources	How do you decommission resources?	cost_decomissioning_resources_data_retention	Enforce data retention policies
+wellarchitected	costOptimization	decomissioning-resources	How do you decommission resources?	cost_decomissioning_resources_decomm_automated	Decommission resources automatically
+wellarchitected	costOptimization	decomissioning-resources	How do you decommission resources?	cost_decomissioning_resources_no	None of these
+wellarchitected	costOptimization	select-service	How do you evaluate cost when you select services?	cost_select_service_requirements	Identify organization requirements for cost
+wellarchitected	costOptimization	select-service	How do you evaluate cost when you select services?	cost_select_service_analyze_all	Analyze all components of this workload
+wellarchitected	costOptimization	select-service	How do you evaluate cost when you select services?	cost_select_service_thorough_analysis	Perform a thorough analysis of each component
+wellarchitected	costOptimization	select-service	How do you evaluate cost when you select services?	cost_select_service_select_for_cost	Select components of this workload to optimize cost in line with organization priorities
+wellarchitected	costOptimization	select-service	How do you evaluate cost when you select services?	cost_select_service_analyze_over_time	Perform cost analysis for different usage over time
+wellarchitected	costOptimization	select-service	How do you evaluate cost when you select services?	cost_select_service_licensing	Select software with cost effective licensing
+wellarchitected	costOptimization	select-service	How do you evaluate cost when you select services?	cost_select_service_no	None of these
+wellarchitected	costOptimization	type-size-number-resources	How do you meet cost targets when you select resource type, size and number?	cost_type_size_number_resources_cost_modeling	Perform cost modeling
+wellarchitected	costOptimization	type-size-number-resources	How do you meet cost targets when you select resource type, size and number?	cost_type_size_number_resources_data	Select resource type, size, and number based on data
+wellarchitected	costOptimization	type-size-number-resources	How do you meet cost targets when you select resource type, size and number?	cost_type_size_number_resources_shared	Consider using shared resources
+wellarchitected	costOptimization	type-size-number-resources	How do you meet cost targets when you select resource type, size and number?	cost_type_size_number_resources_metrics	Select resource type, size, and number automatically based on metrics
+wellarchitected	costOptimization	type-size-number-resources	How do you meet cost targets when you select resource type, size and number?	cost_type_size_number_resources_no	None of these
+wellarchitected	costOptimization	pricing-model	How do you use pricing models to reduce cost?	cost_pricing_model_analysis	Perform pricing model analysis
+wellarchitected	costOptimization	pricing-model	How do you use pricing models to reduce cost?	cost_pricing_model_region_cost	Choose Regions based on cost
+wellarchitected	costOptimization	pricing-model	How do you use pricing models to reduce cost?	cost_pricing_model_third_party	Select third-party agreements with cost-efficient terms
+wellarchitected	costOptimization	pricing-model	How do you use pricing models to reduce cost?	cost_pricing_model_implement_models	Implement pricing models for all components of this workload
+wellarchitected	costOptimization	pricing-model	How do you use pricing models to reduce cost?	cost_pricing_model_master_analysis	Perform pricing model analysis at the management account level
+wellarchitected	costOptimization	pricing-model	How do you use pricing models to reduce cost?	cost_pricing_model_no	None of these
+wellarchitected	costOptimization	data-transfer	How do you plan for data transfer charges?	cost_data_transfer_modeling	Perform data transfer modeling
+wellarchitected	costOptimization	data-transfer	How do you plan for data transfer charges?	cost_data_transfer_optimized_components	Select components to optimize data transfer cost
+wellarchitected	costOptimization	data-transfer	How do you plan for data transfer charges?	cost_data_transfer_implement_services	Implement services to reduce data transfer costs
+wellarchitected	costOptimization	data-transfer	How do you plan for data transfer charges?	cost_data_transfer_no	None of these
+wellarchitected	costOptimization	manage-demand-resources	How do you manage demand, and supply resources?	cost_manage_demand_resources_cost_analysis	Perform an analysis on the workload demand
+wellarchitected	costOptimization	manage-demand-resources	How do you manage demand, and supply resources?	cost_manage_demand_resources_buffer_throttle	Implement a buffer or throttle to manage demand
+wellarchitected	costOptimization	manage-demand-resources	How do you manage demand, and supply resources?	cost_manage_demand_resources_dynamic	Supply resources dynamically
+wellarchitected	costOptimization	manage-demand-resources	How do you manage demand, and supply resources?	cost_manage_demand_resources_no	None of these
+wellarchitected	costOptimization	evaluate-new-services	How do you evaluate new services?	cost_evaluate_new_services_review_process	Develop a workload review process
+wellarchitected	costOptimization	evaluate-new-services	How do you evaluate new services?	cost_evaluate_new_services_review_workload	Review and analyze this workload regularly
+wellarchitected	costOptimization	evaluate-new-services	How do you evaluate new services?	cost_evaluate_new_services_no	None of these
+wellarchitected	costOptimization	evaluate-cost-effort	How do you evaluate the cost of effort?	cost_evaluate_cost_effort_automations_operations	Perform automation for operations
+wellarchitected	costOptimization	evaluate-cost-effort	How do you evaluate the cost of effort?	cost_evaluate_cost_effort_no	None of these
+wellarchitected	operationalExcellence	priorities	How do you determine what your priorities are?	ops_priorities_ext_cust_needs	Evaluate external customer needs
+wellarchitected	operationalExcellence	priorities	How do you determine what your priorities are?	ops_priorities_int_cust_needs	Evaluate internal customer needs
+wellarchitected	operationalExcellence	priorities	How do you determine what your priorities are?	ops_priorities_governance_reqs	Evaluate governance requirements
+wellarchitected	operationalExcellence	priorities	How do you determine what your priorities are?	ops_priorities_compliance_reqs	Evaluate compliance requirements
+wellarchitected	operationalExcellence	priorities	How do you determine what your priorities are?	ops_priorities_eval_threat_landscape	Evaluate threat landscape
+wellarchitected	operationalExcellence	priorities	How do you determine what your priorities are?	ops_priorities_eval_tradeoffs	Evaluate tradeoffs while managing benefits and risks
+wellarchitected	operationalExcellence	priorities	How do you determine what your priorities are?	ops_priorities_no	None of these
+wellarchitected	operationalExcellence	ops-model	How do you structure your organization to support your business outcomes?	ops_ops_model_def_resource_owners	Resources have identified owners
+wellarchitected	operationalExcellence	ops-model	How do you structure your organization to support your business outcomes?	ops_ops_model_def_proc_owners	Processes and procedures have identified owners
+wellarchitected	operationalExcellence	ops-model	How do you structure your organization to support your business outcomes?	ops_ops_model_def_activity_owners	Operations activities have identified owners responsible for their performance
+wellarchitected	operationalExcellence	ops-model	How do you structure your organization to support your business outcomes?	ops_ops_model_def_responsibilities_ownership	Mechanisms exist to manage responsibilities and ownership
+wellarchitected	operationalExcellence	ops-model	How do you structure your organization to support your business outcomes?	ops_ops_model_req_add_chg_exception	Mechanisms exist to request additions, changes, and exceptions
+wellarchitected	operationalExcellence	ops-model	How do you structure your organization to support your business outcomes?	ops_ops_model_def_neg_team_agreements	Responsibilities between teams are predefined or negotiated
+wellarchitected	operationalExcellence	ops-model	How do you structure your organization to support your business outcomes?	ops_ops_model_no	None of these
+wellarchitected	operationalExcellence	org-culture	How does your organizational culture support your business outcomes?	ops_org_culture_executive_sponsor	Provide executive sponsorship
+wellarchitected	operationalExcellence	org-culture	How does your organizational culture support your business outcomes?	ops_org_culture_team_enc_escalation	Escalation is encouraged
+wellarchitected	operationalExcellence	org-culture	How does your organizational culture support your business outcomes?	ops_org_culture_effective_comms	Communications are timely, clear, and actionable
+wellarchitected	operationalExcellence	org-culture	How does your organizational culture support your business outcomes?	ops_org_culture_team_emp_take_action	Team members are empowered to take action when outcomes are at risk
+wellarchitected	operationalExcellence	org-culture	How does your organizational culture support your business outcomes?	ops_org_culture_team_enc_experiment	Experimentation is encouraged
+wellarchitected	operationalExcellence	org-culture	How does your organizational culture support your business outcomes?	ops_org_culture_team_enc_learn	Team members are encouraged to maintain and grow their skill sets
+wellarchitected	operationalExcellence	org-culture	How does your organizational culture support your business outcomes?	ops_org_culture_team_res_appro	Resource teams appropriately
+wellarchitected	operationalExcellence	org-culture	How does your organizational culture support your business outcomes?	ops_org_culture_no	None of these
+wellarchitected	operationalExcellence	observability	How do you implement observability in your workload?	ops_observability_identify_kpis	Identify key performance indicators
+wellarchitected	operationalExcellence	observability	How do you implement observability in your workload?	ops_observability_application_telemetry	Implement application telemetry
+wellarchitected	operationalExcellence	observability	How do you implement observability in your workload?	ops_observability_customer_telemetry	Implement user experience telemetry
+wellarchitected	operationalExcellence	observability	How do you implement observability in your workload?	ops_observability_dependency_telemetry	Implement dependency telemetry
+wellarchitected	operationalExcellence	observability	How do you implement observability in your workload?	ops_observability_dist_trace	Implement distributed tracing
+wellarchitected	operationalExcellence	observability	How do you implement observability in your workload?	ops_telemetry_no	None of these
+wellarchitected	operationalExcellence	dev-integ	How do you reduce defects, ease remediation, and improve flow into production?	ops_dev_integ_version_control	Use version control
+wellarchitected	operationalExcellence	dev-integ	How do you reduce defects, ease remediation, and improve flow into production?	ops_dev_integ_test_val_chg	Test and validate changes
+wellarchitected	operationalExcellence	dev-integ	How do you reduce defects, ease remediation, and improve flow into production?	ops_dev_integ_conf_mgmt_sys	Use configuration management systems
+wellarchitected	operationalExcellence	dev-integ	How do you reduce defects, ease remediation, and improve flow into production?	ops_dev_integ_build_mgmt_sys	Use build and deployment management systems
+wellarchitected	operationalExcellence	dev-integ	How do you reduce defects, ease remediation, and improve flow into production?	ops_dev_integ_patch_mgmt	Perform patch management
+wellarchitected	operationalExcellence	dev-integ	How do you reduce defects, ease remediation, and improve flow into production?	ops_dev_integ_share_design_stds	Share design standards
+wellarchitected	operationalExcellence	dev-integ	How do you reduce defects, ease remediation, and improve flow into production?	ops_dev_integ_code_quality	Implement practices to improve code quality
+wellarchitected	operationalExcellence	dev-integ	How do you reduce defects, ease remediation, and improve flow into production?	ops_dev_integ_multi_env	Use multiple environments
+wellarchitected	operationalExcellence	dev-integ	How do you reduce defects, ease remediation, and improve flow into production?	ops_dev_integ_freq_sm_rev_chg	Make frequent, small, reversible changes
+wellarchitected	operationalExcellence	dev-integ	How do you reduce defects, ease remediation, and improve flow into production?	ops_dev_integ_auto_integ_deploy	Fully automate integration and deployment
+wellarchitected	operationalExcellence	dev-integ	How do you reduce defects, ease remediation, and improve flow into production?	ops_dev_integ_no	None of these
+wellarchitected	operationalExcellence	mit-deploy-risks	How do you mitigate deployment risks?	ops_mit_deploy_risks_plan_for_unsucessful_changes	Plan for unsuccessful changes
+wellarchitected	operationalExcellence	mit-deploy-risks	How do you mitigate deployment risks?	ops_mit_deploy_risks_test_val_chg	Test deployments
+wellarchitected	operationalExcellence	mit-deploy-risks	How do you mitigate deployment risks?	ops_mit_deploy_risks_deploy_mgmt_sys	Employ safe deployment strategies
+wellarchitected	operationalExcellence	mit-deploy-risks	How do you mitigate deployment risks?	ops_mit_deploy_risks_auto_testing_and_rollback	Automate testing and rollback
+wellarchitected	operationalExcellence	mit-deploy-risks	How do you mitigate deployment risks?	ops_mit_deploy_risks_no	None of these
+wellarchitected	operationalExcellence	ready-to-support	How do you know that you are ready to support a workload?	ops_ready_to_support_personnel_capability	Ensure personnel capability
+wellarchitected	operationalExcellence	ready-to-support	How do you know that you are ready to support a workload?	ops_ready_to_support_const_orr	Ensure a consistent review of operational readiness
+wellarchitected	operationalExcellence	ready-to-support	How do you know that you are ready to support a workload?	ops_ready_to_support_use_runbooks	Use runbooks to perform procedures
+wellarchitected	operationalExcellence	ready-to-support	How do you know that you are ready to support a workload?	ops_ready_to_support_use_playbooks	Use playbooks to investigate issues
+wellarchitected	operationalExcellence	ready-to-support	How do you know that you are ready to support a workload?	ops_ready_to_support_informed_deploy_decisions	Make informed decisions to deploy systems and changes
+wellarchitected	operationalExcellence	ready-to-support	How do you know that you are ready to support a workload?	ops_ready_to_support_enable_support_plans	Create support plans for production workloads
+wellarchitected	operationalExcellence	ready-to-support	How do you know that you are ready to support a workload?	ops_ready_to_support_no	None of these
+wellarchitected	operationalExcellence	workload-observability	How do you utilize workload observability in your organization?	ops_workload_observability_create_alerts	Create actionable alerts
+wellarchitected	operationalExcellence	workload-observability	How do you utilize workload observability in your organization?	ops_workload_observability_analyze_workload_metrics	Analyze workload metrics
+wellarchitected	operationalExcellence	workload-observability	How do you utilize workload observability in your organization?	ops_workload_observability_analyze_workload_logs	Analyze workload logs
+wellarchitected	operationalExcellence	workload-observability	How do you utilize workload observability in your organization?	ops_workload_observability_analyze_workload_traces	Analyze workload traces
+wellarchitected	operationalExcellence	workload-observability	How do you utilize workload observability in your organization?	ops_workload_observability_create_dashboards	Create dashboards
+wellarchitected	operationalExcellence	workload-observability	How do you utilize workload observability in your organization?	ops_workload_observability_no	None of these
+wellarchitected	operationalExcellence	operations-health	How do you understand the health of your operations?	ops_operations_health_measure_ops_goals_kpis	Measure operations goals and KPIs with metrics
+wellarchitected	operationalExcellence	operations-health	How do you understand the health of your operations?	ops_operations_health_communicate_status_trends	Communicate status and trends to ensure visibility into operation
+wellarchitected	operationalExcellence	operations-health	How do you understand the health of your operations?	ops_operations_health_review_ops_metrics_prioritize_improvement	Review operations metrics and prioritize improvement
+wellarchitected	operationalExcellence	operations-health	How do you understand the health of your operations?	ops_operations_health_no	None of these
+wellarchitected	operationalExcellence	event-response	How do you manage workload and operations events?	ops_event_response_event_incident_problem_process	Use a process for event, incident, and problem management
+wellarchitected	operationalExcellence	event-response	How do you manage workload and operations events?	ops_event_response_process_per_alert	Have a process per alert
+wellarchitected	operationalExcellence	event-response	How do you manage workload and operations events?	ops_event_response_prioritize_events	Prioritize operational events based on business impact
+wellarchitected	operationalExcellence	event-response	How do you manage workload and operations events?	ops_event_response_define_escalation_paths	Define escalation paths
+wellarchitected	operationalExcellence	event-response	How do you manage workload and operations events?	ops_event_response_push_notify	Define a customer communication plan for service-impacting events
+wellarchitected	operationalExcellence	event-response	How do you manage workload and operations events?	ops_event_response_dashboards	Communicate status through dashboards
+wellarchitected	operationalExcellence	event-response	How do you manage workload and operations events?	ops_event_response_auto_event_response	Automate responses to events
+wellarchitected	operationalExcellence	event-response	How do you manage workload and operations events?	ops_event_response_no	None of these
+wellarchitected	operationalExcellence	evolve-ops	How do you evolve operations?	ops_evolve_ops_process_cont_imp	Have a process for continuous improvement
+wellarchitected	operationalExcellence	evolve-ops	How do you evolve operations?	ops_evolve_ops_perform_rca_process	Perform post-incident analysis
+wellarchitected	operationalExcellence	evolve-ops	How do you evolve operations?	ops_evolve_ops_feedback_loops	Implement feedback loops
+wellarchitected	operationalExcellence	evolve-ops	How do you evolve operations?	ops_evolve_ops_knowledge_management	Perform knowledge management
+wellarchitected	operationalExcellence	evolve-ops	How do you evolve operations?	ops_evolve_ops_drivers_for_imp	Define drivers for improvement
+wellarchitected	operationalExcellence	evolve-ops	How do you evolve operations?	ops_evolve_ops_validate_insights	Validate insights
+wellarchitected	operationalExcellence	evolve-ops	How do you evolve operations?	ops_evolve_ops_metrics_review	Perform operations metrics reviews
+wellarchitected	operationalExcellence	evolve-ops	How do you evolve operations?	ops_evolve_ops_share_lessons_learned	Document and share lessons learned
+wellarchitected	operationalExcellence	evolve-ops	How do you evolve operations?	ops_evolve_ops_allocate_time_for_imp	Allocate time to make improvements
+wellarchitected	operationalExcellence	evolve-ops	How do you evolve operations?	ops_evolve_ops_no	None of these
+wellarchitected	performance	performing-architecture	How do you select the appropriate cloud resources and architecture patterns for your workload?	perf_architecture_understand_cloud_services_and_features	Learn about and understand available cloud services and features
+wellarchitected	performance	performing-architecture	How do you select the appropriate cloud resources and architecture patterns for your workload?	perf_architecture_evaluate_trade_offs	Evaluate how trade-offs impact customers and architecture efficiency
+wellarchitected	performance	performing-architecture	How do you select the appropriate cloud resources and architecture patterns for your workload?	perf_architecture_guidance_architecture_patterns_best_practices	Use guidance from your cloud provider or an appropriate partner to learn about architecture patterns and best practices
+wellarchitected	performance	performing-architecture	How do you select the appropriate cloud resources and architecture patterns for your workload?	perf_architecture_factor_cost_into_architectural_decisions	Factor cost into architectural decisions
+wellarchitected	performance	performing-architecture	How do you select the appropriate cloud resources and architecture patterns for your workload?	perf_architecture_use_policies_and_reference_architectures	Use policies and reference architectures
+wellarchitected	performance	performing-architecture	How do you select the appropriate cloud resources and architecture patterns for your workload?	perf_architecture_use_benchmarking	Use benchmarking to drive architectural decisions
+wellarchitected	performance	performing-architecture	How do you select the appropriate cloud resources and architecture patterns for your workload?	perf_architecture_use_data_driven_approach	Use a data-driven approach for architectural choices
+wellarchitected	performance	performing-architecture	How do you select the appropriate cloud resources and architecture patterns for your workload?	perf_performing_architecture_no	None of these
+wellarchitected	performance	compute-hardware	How do you select and use compute resources in your workload?	perf_compute_hardware_select_best_compute_options	Select the best compute options for your workload
+wellarchitected	performance	compute-hardware	How do you select and use compute resources in your workload?	perf_compute_hardware_collect_compute_related_metrics	Collect compute-related metrics
+wellarchitected	performance	compute-hardware	How do you select and use compute resources in your workload?	perf_compute_hardware_scale_compute_resources_dynamically	Scale your compute resources dynamically
+wellarchitected	performance	compute-hardware	How do you select and use compute resources in your workload?	perf_compute_hardware_understand_compute_configuration_features	Understand the available compute configuration and features
+wellarchitected	performance	compute-hardware	How do you select and use compute resources in your workload?	perf_compute_hardware_configure_and_right_size_compute_resources	Configure and right-size compute resources
+wellarchitected	performance	compute-hardware	How do you select and use compute resources in your workload?	perf_compute_hardware_compute_accelerators	Use optimized hardware-based compute accelerators
+wellarchitected	performance	compute-hardware	How do you select and use compute resources in your workload?	perf_compute_hardware_no	None of these
+wellarchitected	performance	data-management	How do you store, manage, and access data in your workload?	perf_data_use_purpose_built_data_store	Use purpose-built data store that best support your data access and storage requirements
+wellarchitected	performance	data-management	How do you store, manage, and access data in your workload?	perf_data_collect_record_data_store_performance_metrics	Collect and record data store performance metrics
+wellarchitected	performance	data-management	How do you store, manage, and access data in your workload?	perf_data_evaluate_configuration_options_data_store	Evaluate available configuration options for data store
+wellarchitected	performance	data-management	How do you store, manage, and access data in your workload?	perf_data_implement_strategies_to_improve_query_performance	Implement strategies to improve query performance in data store
+wellarchitected	performance	data-management	How do you store, manage, and access data in your workload?	perf_data_access_patterns_caching	Implement data access patterns that utilize caching
+wellarchitected	performance	data-management	How do you store, manage, and access data in your workload?	perf_data_no	None of these
+wellarchitected	performance	networking	How do you select and configure networking resources in your workload?	perf_networking_understand_how_networking_impacts_performance	Understand how networking impacts performance
+wellarchitected	performance	networking	How do you select and configure networking resources in your workload?	perf_networking_evaluate_networking_features	Evaluate available networking features
+wellarchitected	performance	networking	How do you select and configure networking resources in your workload?	perf_networking_choose_appropriate_dedicated_connectivity_or_vpn	Choose appropriate dedicated connectivity or VPN for your workload
+wellarchitected	performance	networking	How do you select and configure networking resources in your workload?	perf_networking_load_balancing_distribute_traffic	Use load balancing to distribute traffic across multiple resources
+wellarchitected	performance	networking	How do you select and configure networking resources in your workload?	perf_networking_choose_network_protocols_improve_performance	Choose network protocols to improve performance
+wellarchitected	performance	networking	How do you select and configure networking resources in your workload?	perf_networking_choose_workload_location_network_requirements	Choose your workload's location based on network requirements
+wellarchitected	performance	networking	How do you select and configure networking resources in your workload?	perf_networking_optimize_network_configuration_based_on_metrics	Optimize network configuration based on metrics
+wellarchitected	performance	networking	How do you select and configure networking resources in your workload?	perf_networking_no	None of these
+wellarchitected	performance	process-culture	What process do you use to support more performance efficiency for your workload?	perf_process_culture_establish_key_performance_indicators	Establish key performance indicators (KPIs) to measure workload health and performance
+wellarchitected	performance	process-culture	What process do you use to support more performance efficiency for your workload?	perf_process_culture_use_monitoring_solutions	Use monitoring solutions to understand the areas where performance is most critical
+wellarchitected	performance	process-culture	What process do you use to support more performance efficiency for your workload?	perf_process_culture_workload_performance	Define a process to improve workload performance
+wellarchitected	performance	process-culture	What process do you use to support more performance efficiency for your workload?	perf_process_culture_review_metrics	Review metrics at regular intervals
+wellarchitected	performance	process-culture	What process do you use to support more performance efficiency for your workload?	perf_process_culture_load_test	Load test your workload
+wellarchitected	performance	process-culture	What process do you use to support more performance efficiency for your workload?	perf_process_culture_automation_remediate_issues	Use automation to proactively remediate performance-related issues
+wellarchitected	performance	process-culture	What process do you use to support more performance efficiency for your workload?	perf_process_culture_keep_workload_and_services_up_to_date	Keep your workload and services up-to-date
+wellarchitected	performance	process-culture	What process do you use to support more performance efficiency for your workload?	perf_process_culture_no	None of these
+wellarchitected	reliability	manage-service-limits	How do you manage service quotas and constraints?	rel_manage_service_limits_aware_quotas_and_constraints	Aware of service quotas and constraints
+wellarchitected	reliability	manage-service-limits	How do you manage service quotas and constraints?	rel_manage_service_limits_limits_considered	Manage service quotas across accounts and Regions
+wellarchitected	reliability	manage-service-limits	How do you manage service quotas and constraints?	rel_manage_service_limits_aware_fixed_limits	Accommodate fixed service quotas and constraints through architecture
+wellarchitected	reliability	manage-service-limits	How do you manage service quotas and constraints?	rel_manage_service_limits_monitor_manage_limits	Monitor and manage quotas
+wellarchitected	reliability	manage-service-limits	How do you manage service quotas and constraints?	rel_manage_service_limits_automated_monitor_limits	Automate quota management
+wellarchitected	reliability	manage-service-limits	How do you manage service quotas and constraints?	rel_manage_service_limits_suff_buffer_limits	Ensure that a sufficient gap exists between the current quotas and the maximum usage to accommodate failover
+wellarchitected	reliability	manage-service-limits	How do you manage service quotas and constraints?	rel_manage_service_limits_no	None of these
+wellarchitected	reliability	planning-network-topology	How do you plan your network topology?	rel_planning_network_topology_ha_conn_users	Use highly available network connectivity for your workload public endpoints
+wellarchitected	reliability	planning-network-topology	How do you plan your network topology?	rel_planning_network_topology_ha_conn_private_networks	Provision redundant connectivity between private networks in the cloud and on-premises environments
+wellarchitected	reliability	planning-network-topology	How do you plan your network topology?	rel_planning_network_topology_ip_subnet_allocation	Ensure IP subnet allocation accounts for expansion and availability
+wellarchitected	reliability	planning-network-topology	How do you plan your network topology?	rel_planning_network_topology_prefer_hub_and_spoke	Prefer hub-and-spoke topologies over many-to-many mesh
+wellarchitected	reliability	planning-network-topology	How do you plan your network topology?	rel_planning_network_topology_non_overlap_ip	Enforce non-overlapping private IP address ranges in all private address spaces where they are connected
+wellarchitected	reliability	planning-network-topology	How do you plan your network topology?	rel_planning_network_topology_no	None of these
+wellarchitected	reliability	service-architecture	How do you design your workload service architecture?	rel_service_architecture_monolith_soa_microservice	Choose how to segment your workload
+wellarchitected	reliability	service-architecture	How do you design your workload service architecture?	rel_service_architecture_business_domains	Build services focused on specific business domains and functionality
+wellarchitected	reliability	service-architecture	How do you design your workload service architecture?	rel_service_architecture_api_contracts	Provide service contracts per API
+wellarchitected	reliability	service-architecture	How do you design your workload service architecture?	rel_service_architecture_no	None of these
+wellarchitected	reliability	prevent-interaction-failure	How do you design interactions in a distributed system to prevent failures?	rel_prevent_interaction_failure_identify	Identify the kind of distributed systems you depend on
+wellarchitected	reliability	prevent-interaction-failure	How do you design interactions in a distributed system to prevent failures?	rel_prevent_interaction_failure_loosely_coupled_system	Implement loosely coupled dependencies
+wellarchitected	reliability	prevent-interaction-failure	How do you design interactions in a distributed system to prevent failures?	rel_prevent_interaction_failure_idempotent	Make mutating operations idempotent
+wellarchitected	reliability	prevent-interaction-failure	How do you design interactions in a distributed system to prevent failures?	rel_prevent_interaction_failure_constant_work	Do constant work
+wellarchitected	reliability	prevent-interaction-failure	How do you design interactions in a distributed system to prevent failures?	rel_prevent_interaction_failure_no	None of these
+wellarchitected	reliability	mitigate-interaction-failure	How do you design interactions in a distributed system to mitigate or withstand failures?	rel_mitigate_interaction_failure_graceful_degradation	Implement graceful degradation to transform applicable hard dependencies into soft dependencies
+wellarchitected	reliability	mitigate-interaction-failure	How do you design interactions in a distributed system to mitigate or withstand failures?	rel_mitigate_interaction_failure_throttle_requests	Throttle requests
+wellarchitected	reliability	mitigate-interaction-failure	How do you design interactions in a distributed system to mitigate or withstand failures?	rel_mitigate_interaction_failure_limit_retries	Control and limit retry calls
+wellarchitected	reliability	mitigate-interaction-failure	How do you design interactions in a distributed system to mitigate or withstand failures?	rel_mitigate_interaction_failure_fail_fast	Fail fast and limit queues
+wellarchitected	reliability	mitigate-interaction-failure	How do you design interactions in a distributed system to mitigate or withstand failures?	rel_mitigate_interaction_failure_client_timeouts	Set client timeouts
+wellarchitected	reliability	mitigate-interaction-failure	How do you design interactions in a distributed system to mitigate or withstand failures?	rel_mitigate_interaction_failure_stateless	Make systems stateless where possible
+wellarchitected	reliability	mitigate-interaction-failure	How do you design interactions in a distributed system to mitigate or withstand failures?	rel_mitigate_interaction_failure_emergency_levers	Implement emergency levers
+wellarchitected	reliability	mitigate-interaction-failure	How do you design interactions in a distributed system to mitigate or withstand failures?	rel_mitigate_interaction_failure_no	None of these
+wellarchitected	reliability	monitor-aws-resources	How do you monitor workload resources?	rel_monitor_aws_resources_monitor_resources	Monitor all components for the workload (Generation)
+wellarchitected	reliability	monitor-aws-resources	How do you monitor workload resources?	rel_monitor_aws_resources_notification_aggregation	Define and calculate metrics (Aggregation)
+wellarchitected	reliability	monitor-aws-resources	How do you monitor workload resources?	rel_monitor_aws_resources_notification_monitor	Send notifications (Real-time processing and alarming)
+wellarchitected	reliability	monitor-aws-resources	How do you monitor workload resources?	rel_monitor_aws_resources_automate_response_monitor	Automate responses (Real-time processing and alarming)
+wellarchitected	reliability	monitor-aws-resources	How do you monitor workload resources?	rel_monitor_aws_resources_storage_analytics	Analyze logs
+wellarchitected	reliability	monitor-aws-resources	How do you monitor workload resources?	rel_monitor_aws_resources_review_monitoring	Regularly review monitoring scope and metrics
+wellarchitected	reliability	monitor-aws-resources	How do you monitor workload resources?	rel_monitor_aws_resources_end_to_end	Monitor end-to-end tracing of requests through your system
+wellarchitected	reliability	monitor-aws-resources	How do you monitor workload resources?	rel_monitor_aws_resources_no	None of these
+wellarchitected	reliability	adapt-to-changes	How do you design your workload to adapt to changes in demand?	rel_adapt_to_changes_autoscale_adapt	Use automation when obtaining or scaling resources
+wellarchitected	reliability	adapt-to-changes	How do you design your workload to adapt to changes in demand?	rel_adapt_to_changes_reactive_adapt_auto	Obtain resources upon detection of impairment to a workload
+wellarchitected	reliability	adapt-to-changes	How do you design your workload to adapt to changes in demand?	rel_adapt_to_changes_proactive_adapt_auto	Obtain resources upon detection that more resources are needed for a workload
+wellarchitected	reliability	adapt-to-changes	How do you design your workload to adapt to changes in demand?	rel_adapt_to_changes_load_tested_adapt	Load test your workload
+wellarchitected	reliability	adapt-to-changes	How do you design your workload to adapt to changes in demand?	rel_adapt_to_changes_no	None of these
+wellarchitected	reliability	tracking-change-management	How do you implement change?	rel_tracking_change_management_planned_changemgmt	Use runbooks for standard activities such as deployment
+wellarchitected	reliability	tracking-change-management	How do you implement change?	rel_tracking_change_management_functional_testing	Integrate functional testing as part of your deployment
+wellarchitected	reliability	tracking-change-management	How do you implement change?	rel_tracking_change_management_resiliency_testing	Integrate resiliency testing as part of your deployment
+wellarchitected	reliability	tracking-change-management	How do you implement change?	rel_tracking_change_management_immutable_infrastructure	Deploy using immutable infrastructure
+wellarchitected	reliability	tracking-change-management	How do you implement change?	rel_tracking_change_management_automated_changemgmt	Deploy changes with automation
+wellarchitected	reliability	tracking-change-management	How do you implement change?	rel_tracking_change_management_no	None of these
+wellarchitected	reliability	backing-up-data	How do you back up data?	rel_backing_up_data_identified_backups_data	Identify and back up all data that needs to be backed up, or reproduce the data from sources
+wellarchitected	reliability	backing-up-data	How do you back up data?	rel_backing_up_data_secured_backups_data	Secure and encrypt backups
+wellarchitected	reliability	backing-up-data	How do you back up data?	rel_backing_up_data_automated_backups_data	Perform data backup automatically
+wellarchitected	reliability	backing-up-data	How do you back up data?	rel_backing_up_data_periodic_recovery_testing_data	Perform periodic recovery of the data to verify backup integrity and processes
+wellarchitected	reliability	backing-up-data	How do you back up data?	rel_backing_up_data_no	None of these
+wellarchitected	reliability	fault-isolation	How do you use fault isolation to protect your workload?	rel_fault_isolation_multiaz_region_system	Deploy the workload to multiple locations
+wellarchitected	reliability	fault-isolation	How do you use fault isolation to protect your workload?	rel_fault_isolation_use_bulkhead	Use bulkhead architectures to limit scope of impact
+wellarchitected	reliability	fault-isolation	How do you use fault isolation to protect your workload?	rel_fault_isolation_single_az_system	Automate recovery for components constrained to a single location
+wellarchitected	reliability	fault-isolation	How do you use fault isolation to protect your workload?	rel_fault_isolation_no	None of these
+wellarchitected	reliability	withstand-component-failures	How do you design your workload to withstand component failures?	rel_withstand_component_failures_monitoring_health	Monitor all components of the workload to detect failures
+wellarchitected	reliability	withstand-component-failures	How do you design your workload to withstand component failures?	rel_withstand_component_failures_failover2good	Fail over to healthy resources
+wellarchitected	reliability	withstand-component-failures	How do you design your workload to withstand component failures?	rel_withstand_component_failures_auto_healing_system	Automate healing on all layers
+wellarchitected	reliability	withstand-component-failures	How do you design your workload to withstand component failures?	rel_withstand_component_failures_avoid_control_plane	Rely on the data plane and not the control plane during recovery
+wellarchitected	reliability	withstand-component-failures	How do you design your workload to withstand component failures?	rel_withstand_component_failures_static_stability	Use static stability to prevent bimodal behavior
+wellarchitected	reliability	withstand-component-failures	How do you design your workload to withstand component failures?	rel_withstand_component_failures_notifications_sent_system	Send notifications when events impact availability
+wellarchitected	reliability	withstand-component-failures	How do you design your workload to withstand component failures?	rel_withstand_component_failures_service_level_agreements	Architect your product to meet availability targets and uptime service level agreements (SLAs)
+wellarchitected	reliability	withstand-component-failures	How do you design your workload to withstand component failures?	rel_withstand_component_failures_no	None of these
+wellarchitected	reliability	testing-resiliency	How do you test reliability?	rel_testing_resiliency_playbook_resiliency	Use playbooks to investigate failures
+wellarchitected	reliability	testing-resiliency	How do you test reliability?	rel_testing_resiliency_rca_resiliency	Perform post-incident analysis
+wellarchitected	reliability	testing-resiliency	How do you test reliability?	rel_testing_resiliency_test_non_functional	Test scalability and performance requirements
+wellarchitected	reliability	testing-resiliency	How do you test reliability?	rel_testing_resiliency_failure_injection_resiliency	Test resiliency using chaos engineering
+wellarchitected	reliability	testing-resiliency	How do you test reliability?	rel_testing_resiliency_game_days_resiliency	Conduct game days regularly
+wellarchitected	reliability	testing-resiliency	How do you test reliability?	rel_testing_resiliency_no	None of these
+wellarchitected	reliability	planning-for-recovery	How do you plan for disaster recovery (DR)?	rel_planning_for_recovery_objective_defined_recovery	Define recovery objectives for downtime and data loss
+wellarchitected	reliability	planning-for-recovery	How do you plan for disaster recovery (DR)?	rel_planning_for_recovery_disaster_recovery	Use defined recovery strategies to meet the recovery objectives
+wellarchitected	reliability	planning-for-recovery	How do you plan for disaster recovery (DR)?	rel_planning_for_recovery_dr_tested	Test disaster recovery implementation to validate the implementation
+wellarchitected	reliability	planning-for-recovery	How do you plan for disaster recovery (DR)?	rel_planning_for_recovery_config_drift	Manage configuration drift at the DR site or Region
+wellarchitected	reliability	planning-for-recovery	How do you plan for disaster recovery (DR)?	rel_planning_for_recovery_auto_recovery	Automate recovery
+wellarchitected	reliability	planning-for-recovery	How do you plan for disaster recovery (DR)?	rel_planning_for_recovery_no	None of these
+wellarchitected	security	securely-operate	How do you securely operate your workload?	sec_securely_operate_multi_accounts	Separate workloads using accounts
+wellarchitected	security	securely-operate	How do you securely operate your workload?	sec_securely_operate_aws_account	Secure account root user and properties
+wellarchitected	security	securely-operate	How do you securely operate your workload?	sec_securely_operate_control_objectives	Identify and validate control objectives
+wellarchitected	security	securely-operate	How do you securely operate your workload?	sec_securely_operate_updated_threats	Stay up to date with security threats and recommendations
+wellarchitected	security	securely-operate	How do you securely operate your workload?	sec_securely_operate_threat_model	Identify and prioritize risks using a threat model
+wellarchitected	security	securely-operate	How do you securely operate your workload?	sec_securely_operate_reduce_management_scope	Reduce security management scope
+wellarchitected	security	securely-operate	How do you securely operate your workload?	sec_securely_operate_automate_security_controls	Automate deployment of standard security controls
+wellarchitected	security	securely-operate	How do you securely operate your workload?	sec_securely_operate_implement_services_features	Evaluate and implement new security services and features regularly
+wellarchitected	security	securely-operate	How do you securely operate your workload?	sec_securely_operate_no	None of these
+wellarchitected	security	identities	How do you manage identities for people and machines?	sec_identities_enforce_mechanisms	Use strong sign-in mechanisms
+wellarchitected	security	identities	How do you manage identities for people and machines?	sec_identities_unique	Use temporary credentials
+wellarchitected	security	identities	How do you manage identities for people and machines?	sec_identities_secrets	Store and use secrets securely
+wellarchitected	security	identities	How do you manage identities for people and machines?	sec_identities_identity_provider	Rely on a centralized identity provider
+wellarchitected	security	identities	How do you manage identities for people and machines?	sec_identities_audit	Audit and rotate credentials periodically
+wellarchitected	security	identities	How do you manage identities for people and machines?	sec_identities_groups_attributes	Employ user groups and attributes
+wellarchitected	security	identities	How do you manage identities for people and machines?	sec_identities_no	None of these
+wellarchitected	security	permissions	How do you manage permissions for people and machines?	sec_permissions_define	Define access requirements
+wellarchitected	security	permissions	How do you manage permissions for people and machines?	sec_permissions_least_privileges	Grant least privilege access
+wellarchitected	security	permissions	How do you manage permissions for people and machines?	sec_permissions_define_guardrails	Define permission guardrails for your organization
+wellarchitected	security	permissions	How do you manage permissions for people and machines?	sec_permissions_lifecycle	Manage access based on lifecycle
+wellarchitected	security	permissions	How do you manage permissions for people and machines?	sec_permissions_emergency_process	Establish emergency access process
+wellarchitected	security	permissions	How do you manage permissions for people and machines?	sec_permissions_share_securely	Share resources securely within your organization
+wellarchitected	security	permissions	How do you manage permissions for people and machines?	sec_permissions_continuous_reduction	Reduce permissions continuously
+wellarchitected	security	permissions	How do you manage permissions for people and machines?	sec_permissions_share_securely_third_party	Share resources securely with a third party
+wellarchitected	security	permissions	How do you manage permissions for people and machines?	sec_permissions_analyze_cross_account	Analyze public and cross account access
+wellarchitected	security	permissions	How do you manage permissions for people and machines?	sec_permissions_no	None of these
+wellarchitected	security	detect-investigate-events	How do you detect and investigate security events?	sec_detect_investigate_events_app_service_logging	Configure service and application logging
+wellarchitected	security	detect-investigate-events	How do you detect and investigate security events?	sec_detect_investigate_events_logs	Capture logs, findings, and metrics in standardized locations
+wellarchitected	security	detect-investigate-events	How do you detect and investigate security events?	sec_detect_investigate_events_noncompliant_resources	Initiate remediation for non-compliant resources
+wellarchitected	security	detect-investigate-events	How do you detect and investigate security events?	sec_detect_investigate_events_security_alerts	Correlate and enrich security events
+wellarchitected	security	detect-investigate-events	How do you detect and investigate security events?	sec_detect_investigate_events_no	None of these
+wellarchitected	security	network-protection	How do you protect your network resources?	sec_network_protection_create_layers	Create network layers
+wellarchitected	security	network-protection	How do you protect your network resources?	sec_network_protection_layered	Control traffic within your network layers
+wellarchitected	security	network-protection	How do you protect your network resources?	sec_network_protection_inspection	Implement inspection-based protection
+wellarchitected	security	network-protection	How do you protect your network resources?	sec_network_protection_auto_protect	Automate network protection
+wellarchitected	security	network-protection	How do you protect your network resources?	sec_network_protection_no	None of these
+wellarchitected	security	protect-compute	How do you protect your compute resources?	sec_protect_compute_vulnerability_management	Perform vulnerability management
+wellarchitected	security	protect-compute	How do you protect your compute resources?	sec_protect_compute_hardened_images	Provision compute from hardened images
+wellarchitected	security	protect-compute	How do you protect your compute resources?	sec_protect_compute_validate_software_integrity	Validate software integrity
+wellarchitected	security	protect-compute	How do you protect your compute resources?	sec_protect_compute_reduce_manual_management	Reduce manual management and interactive access
+wellarchitected	security	protect-compute	How do you protect your compute resources?	sec_protect_compute_auto_protection	Automate compute protection
+wellarchitected	security	protect-compute	How do you protect your compute resources?	sec_protect_compute_no	None of these
+wellarchitected	security	data-classification	How do you classify your data?	sec_data_classification_identify_data	Understand your data classification scheme
+wellarchitected	security	data-classification	How do you classify your data?	sec_data_classification_define_protection	Apply data protection controls based on data sensitivity
+wellarchitected	security	data-classification	How do you classify your data?	sec_data_classification_lifecycle_management	Define scalable data lifecycle management
+wellarchitected	security	data-classification	How do you classify your data?	sec_data_classification_auto_classification	Automate identification and classification
+wellarchitected	security	data-classification	How do you classify your data?	sec_data_classification_no	None of these
+wellarchitected	security	protect-data-rest	How do you protect your data at rest?	sec_protect_data_rest_key_mgmt	Implement secure key management
+wellarchitected	security	protect-data-rest	How do you protect your data at rest?	sec_protect_data_rest_encrypt	Enforce encryption at rest
+wellarchitected	security	protect-data-rest	How do you protect your data at rest?	sec_protect_data_rest_automate_protection	Automate data at rest protection
+wellarchitected	security	protect-data-rest	How do you protect your data at rest?	sec_protect_data_rest_access_control	Enforce access control
+wellarchitected	security	protect-data-rest	How do you protect your data at rest?	sec_protect_data_rest_no	None of these
+wellarchitected	security	protect-data-transit	How do you protect your data in transit?	sec_protect_data_transit_key_cert_mgmt	Implement secure key and certificate management
+wellarchitected	security	protect-data-transit	How do you protect your data in transit?	sec_protect_data_transit_encrypt	Enforce encryption in transit
+wellarchitected	security	protect-data-transit	How do you protect your data in transit?	sec_protect_data_transit_authentication	Authenticate network communications
+wellarchitected	security	protect-data-transit	How do you protect your data in transit?	sec_protect_data_transit_no	None of these
+wellarchitected	security	incident-response	How do you anticipate, respond to, and recover from incidents?	sec_incident_response_identify_personnel	Identify key personnel and external resources
+wellarchitected	security	incident-response	How do you anticipate, respond to, and recover from incidents?	sec_incident_response_develop_management_plans	Develop incident management plans
+wellarchitected	security	incident-response	How do you anticipate, respond to, and recover from incidents?	sec_incident_response_prepare_forensic	Prepare forensic capabilities
+wellarchitected	security	incident-response	How do you anticipate, respond to, and recover from incidents?	sec_incident_response_playbooks	Develop and test security incident response playbooks
+wellarchitected	security	incident-response	How do you anticipate, respond to, and recover from incidents?	sec_incident_response_pre_provision_access	Pre-provision access
+wellarchitected	security	incident-response	How do you anticipate, respond to, and recover from incidents?	sec_incident_response_run_game_days	Run simulations
+wellarchitected	security	incident-response	How do you anticipate, respond to, and recover from incidents?	sec_incident_response_establish_incident_framework	Establish a framework for learning from incidents
+wellarchitected	security	incident-response	How do you anticipate, respond to, and recover from incidents?	sec_incident_response_pre_deploy_tools	Pre-deploy tools
+wellarchitected	security	incident-response	How do you anticipate, respond to, and recover from incidents?	sec_incident_response_no	None of these
+wellarchitected	security	application-security	How do you incorporate and validate the security properties of applications throughout the design, development, and deployment lifecycle?	sec_appsec_perform_regular_penetration_testing	Perform regular penetration testing
+wellarchitected	security	application-security	How do you incorporate and validate the security properties of applications throughout the design, development, and deployment lifecycle?	sec_appsec_deploy_software_programmatically	Deploy software programmatically
+wellarchitected	security	application-security	How do you incorporate and validate the security properties of applications throughout the design, development, and deployment lifecycle?	sec_appsec_regularly_assess_security_properties_of_pipelines	Regularly assess security properties of the pipelines
+wellarchitected	security	application-security	How do you incorporate and validate the security properties of applications throughout the design, development, and deployment lifecycle?	sec_appsec_train_for_application_security	Train for application security
+wellarchitected	security	application-security	How do you incorporate and validate the security properties of applications throughout the design, development, and deployment lifecycle?	sec_appsec_automate_testing_throughout_lifecycle	Automate testing throughout the development and release lifecycle
+wellarchitected	security	application-security	How do you incorporate and validate the security properties of applications throughout the design, development, and deployment lifecycle?	sec_appsec_manual_code_reviews	Conduct code reviews
+wellarchitected	security	application-security	How do you incorporate and validate the security properties of applications throughout the design, development, and deployment lifecycle?	sec_appsec_centralize_services_for_packages_and_dependencies	Centralize services for packages and dependencies
+wellarchitected	security	application-security	How do you incorporate and validate the security properties of applications throughout the design, development, and deployment lifecycle?	sec_appsec_build_program_that_embeds_security_ownership_in_teams	Build a program that embeds security ownership in workload teams
+wellarchitected	security	application-security	How do you incorporate and validate the security properties of applications throughout the design, development, and deployment lifecycle?	sec_appsec_no	None of these
+wellarchitected	sustainability	sus_region	How do you select Regions for your workload?	sus_sus_region_a2	Choose Region based on both business requirements and sustainability goals
+wellarchitected	sustainability	sus_region	How do you select Regions for your workload?	sus_sus_region_no	None of these
+wellarchitected	sustainability	sus_user	How do you align cloud resources to your demand?	sus_sus_user_a2	Scale workload infrastructure dynamically
+wellarchitected	sustainability	sus_user	How do you align cloud resources to your demand?	sus_sus_user_a3	Align SLAs with sustainability goals
+wellarchitected	sustainability	sus_user	How do you align cloud resources to your demand?	sus_sus_user_a5	Optimize geographic placement of workloads based on their networking requirements
+wellarchitected	sustainability	sus_user	How do you align cloud resources to your demand?	sus_sus_user_a4	Stop the creation and maintenance of unused assets
+wellarchitected	sustainability	sus_user	How do you align cloud resources to your demand?	sus_sus_user_a6	Optimize team member resources for activities performed
+wellarchitected	sustainability	sus_user	How do you align cloud resources to your demand?	sus_sus_user_a7	Implement buffering or throttling to flatten the demand curve
+wellarchitected	sustainability	sus_user	How do you align cloud resources to your demand?	sus_sus_user_no	None of these
+wellarchitected	sustainability	sus_software	How do you take advantage of software and architecture patterns to support your sustainability goals?	sus_sus_software_a2	Optimize software and architecture for asynchronous and scheduled jobs
+wellarchitected	sustainability	sus_software	How do you take advantage of software and architecture patterns to support your sustainability goals?	sus_sus_software_a3	Remove or refactor workload components with low or no use
+wellarchitected	sustainability	sus_software	How do you take advantage of software and architecture patterns to support your sustainability goals?	sus_sus_software_a4	Optimize areas of code that consume the most time or resources
+wellarchitected	sustainability	sus_software	How do you take advantage of software and architecture patterns to support your sustainability goals?	sus_sus_software_a5	Optimize impact on devices and equipment
+wellarchitected	sustainability	sus_software	How do you take advantage of software and architecture patterns to support your sustainability goals?	sus_sus_software_a6	Use software patterns and architectures that best support data access and storage patterns
+wellarchitected	sustainability	sus_software	How do you take advantage of software and architecture patterns to support your sustainability goals?	sus_sus_software_no	None of these
+wellarchitected	sustainability	sus_data	How do you take advantage of data management policies and patterns to support your sustainability goals?	sus_sus_data_a2	Implement a data classification policy
+wellarchitected	sustainability	sus_data	How do you take advantage of data management policies and patterns to support your sustainability goals?	sus_sus_data_a3	Use technologies that support data access and storage patterns
+wellarchitected	sustainability	sus_data	How do you take advantage of data management policies and patterns to support your sustainability goals?	sus_sus_data_a4	Use policies to manage the lifecycle of your datasets
+wellarchitected	sustainability	sus_data	How do you take advantage of data management policies and patterns to support your sustainability goals?	sus_sus_data_a6	Remove unneeded or redundant data
+wellarchitected	sustainability	sus_data	How do you take advantage of data management policies and patterns to support your sustainability goals?	sus_sus_data_a7	Use shared file systems or storage to access common data
+wellarchitected	sustainability	sus_data	How do you take advantage of data management policies and patterns to support your sustainability goals?	sus_sus_data_a9	Back up data only when difficult to recreate
+wellarchitected	sustainability	sus_data	How do you take advantage of data management policies and patterns to support your sustainability goals?	sus_sus_data_a5	Use elasticity and automation to expand block storage or file system
+wellarchitected	sustainability	sus_data	How do you take advantage of data management policies and patterns to support your sustainability goals?	sus_sus_data_a8	Minimize data movement across networks
+wellarchitected	sustainability	sus_data	How do you take advantage of data management policies and patterns to support your sustainability goals?	sus_sus_data_no	None of these
+wellarchitected	sustainability	sus_hardware	How do you select and use cloud hardware and services in your architecture to support your sustainability goals?	sus_sus_hardware_a2	Use the minimum amount of hardware to meet your needs
+wellarchitected	sustainability	sus_hardware	How do you select and use cloud hardware and services in your architecture to support your sustainability goals?	sus_sus_hardware_a3	Use instance types with the least impact
+wellarchitected	sustainability	sus_hardware	How do you select and use cloud hardware and services in your architecture to support your sustainability goals?	sus_sus_hardware_a4	Use managed services
+wellarchitected	sustainability	sus_hardware	How do you select and use cloud hardware and services in your architecture to support your sustainability goals?	sus_sus_hardware_a5	Optimize your use of hardware-based compute accelerators
+wellarchitected	sustainability	sus_hardware	How do you select and use cloud hardware and services in your architecture to support your sustainability goals?	sus_sus_hardware_no	None of these
+wellarchitected	sustainability	sus_dev	How do your organizational processes support your sustainability goals?	sus_sus_dev_a1	Communicate and cascade your sustainability goals
+wellarchitected	sustainability	sus_dev	How do your organizational processes support your sustainability goals?	sus_sus_dev_a2	Adopt methods that can rapidly introduce sustainability improvements
+wellarchitected	sustainability	sus_dev	How do your organizational processes support your sustainability goals?	sus_sus_dev_a3	Keep your workload up-to-date
+wellarchitected	sustainability	sus_dev	How do your organizational processes support your sustainability goals?	sus_sus_dev_a4	Increase utilization of build environments
+wellarchitected	sustainability	sus_dev	How do your organizational processes support your sustainability goals?	sus_sus_dev_a5	Use managed device farms for testing
+wellarchitected	sustainability	sus_dev	How do your organizational processes support your sustainability goals?	sus_sus_dev_no	None of these
+serverless	costOptimization	cost_q1	How do you optimize your Serverless application’s costs?	cost_cost_q1_a1	Minimize external calls and function code initialization
+serverless	costOptimization	cost_q1	How do you optimize your Serverless application’s costs?	cost_cost_q1_a2	Optimize logging output and its retention
+serverless	costOptimization	cost_q1	How do you optimize your Serverless application’s costs?	cost_cost_q1_a4	Use cost-aware usage patterns in code
+serverless	costOptimization	cost_q1	How do you optimize your Serverless application’s costs?	cost_cost_q1_a3	Optimize function configuration to reduce cost
+serverless	costOptimization	cost_q1	How do you optimize your Serverless application’s costs?	cost_cost_q1_no	None of these
+serverless	operationalExcellence	ops_q1	How do you evaluate your Serverless application’s health?	ops_ops_q1_a1	Understand, analyze, and alert on metrics provided out of the box
+serverless	operationalExcellence	ops_q1	How do you evaluate your Serverless application’s health?	ops_ops_q1_a2	Use application, business, and operations metrics
+serverless	operationalExcellence	ops_q1	How do you evaluate your Serverless application’s health?	ops_ops_q1_a3	Use distributed tracing and code is instrumented with additional context
+serverless	operationalExcellence	ops_q1	How do you evaluate your Serverless application’s health?	ops_ops_q1_a4	Use structured and centralized logging
+serverless	operationalExcellence	ops_q1	How do you evaluate your Serverless application’s health?	ops_ops_q1_no	None of these
+serverless	operationalExcellence	ops_q2	How do you approach application lifecycle management?	ops_ops_q2_a1	Use infrastructure as code and stages isolated in separate environments
+serverless	operationalExcellence	ops_q2	How do you approach application lifecycle management?	ops_ops_q2_a4	Use CI/CD including automated testing across separate accounts
+serverless	operationalExcellence	ops_q2	How do you approach application lifecycle management?	ops_ops_q2_a2	Prototype new features using temporary environments
+serverless	operationalExcellence	ops_q2	How do you approach application lifecycle management?	ops_ops_q2_a3	Use a rollout deployment mechanism
+serverless	operationalExcellence	ops_q2	How do you approach application lifecycle management?	ops_ops_q2_a5	Use configuration management
+serverless	operationalExcellence	ops_q2	How do you approach application lifecycle management?	ops_ops_q2_a6	Review the function runtime deprecation policy
+serverless	operationalExcellence	ops_q2	How do you approach application lifecycle management?	ops_ops_q2_no	None of these
+serverless	performance	perf_q1	How do you optimize your Serverless application’s performance?	perf_perf_q1_a3	Measure, evaluate, and select optimum capacity units
+serverless	performance	perf_q1	How do you optimize your Serverless application’s performance?	perf_perf_q1_a4	Integrate with managed services directly over functions when possible
+serverless	performance	perf_q1	How do you optimize your Serverless application’s performance?	perf_perf_q1_a1	Measure and optimize function startup time
+serverless	performance	perf_q1	How do you optimize your Serverless application’s performance?	perf_perf_q1_a2	Take advantage of concurrency via async and stream-based function invocations
+serverless	performance	perf_q1	How do you optimize your Serverless application’s performance?	perf_perf_q1_a5	Optimize access patterns and apply caching where applicable
+serverless	performance	perf_q1	How do you optimize your Serverless application’s performance?	perf_perf_q1_no	None of these
+serverless	reliability	rel_q1	How do you regulate inbound request rates?	rel_rel_q1_a1	Use throttling to control inbound request rates
+serverless	reliability	rel_q1	How do you regulate inbound request rates?	rel_rel_q1_a3	Use mechanisms to protect non-scalable resources
+serverless	reliability	rel_q1	How do you regulate inbound request rates?	rel_rel_q1_a2	Use, analyze, and enforce API quotas
+serverless	reliability	rel_q1	How do you regulate inbound request rates?	rel_rel_q1_no	None of these
+serverless	reliability	rel_q2	How do you build resiliency into your Serverless application?	rel_rel_q2_a1	Manage transaction, partial, and intermittent failures
+serverless	reliability	rel_q2	How do you build resiliency into your Serverless application?	rel_rel_q2_a3	Manage duplicate and unwanted events
+serverless	reliability	rel_q2	How do you build resiliency into your Serverless application?	rel_rel_q2_a4	Consider scaling patterns at burst rates
+serverless	reliability	rel_q2	How do you build resiliency into your Serverless application?	rel_rel_q2_a2	Orchestrate long-running transactions
+serverless	reliability	rel_q2	How do you build resiliency into your Serverless application?	rel_rel_q2_no	None of these
+serverless	security	sec_q1	How do you control access to your Serverless API?	sec_sec_q1_a3	Use appropriate endpoint type and mechanisms to secure access to your API
+serverless	security	sec_q1	How do you control access to your Serverless API?	sec_sec_q1_a2	Scope access based on identity’s metadata
+serverless	security	sec_q1	How do you control access to your Serverless API?	sec_sec_q1_a1	Use authentication and authorization mechanisms
+serverless	security	sec_q1	How do you control access to your Serverless API?	sec_sec_q1_no	None of these
+serverless	security	sec_q2	How do you manage your Serverless application’s security boundaries?	sec_sec_q2_a1	Evaluate and define resource policies
+serverless	security	sec_q2	How do you manage your Serverless application’s security boundaries?	sec_sec_q2_a4	Use temporary credentials between resources and components
+serverless	security	sec_q2	How do you manage your Serverless application’s security boundaries?	sec_sec_q2_a3	Design smaller, single purpose functions
+serverless	security	sec_q2	How do you manage your Serverless application’s security boundaries?	sec_sec_q2_a2	Control network traffic at all layers
+serverless	security	sec_q2	How do you manage your Serverless application’s security boundaries?	sec_sec_q2_no	None of these
+serverless	security	sec_q3	How do you implement application Security in your workload?	sec_sec_q3_a1	Review security awareness documents frequently
+serverless	security	sec_q3	How do you implement application Security in your workload?	sec_sec_q3_a4	Store secrets that are used in your code securely
+serverless	security	sec_q3	How do you implement application Security in your workload?	sec_sec_q3_a3	Automatically review workload’s code dependencies/libraries
+serverless	security	sec_q3	How do you implement application Security in your workload?	sec_sec_q3_a5	Validate inbound events
+serverless	security	sec_q3	How do you implement application Security in your workload?	sec_sec_q3_a2	Implement runtime protection to help prevent against malicious code execution
+serverless	security	sec_q3	How do you implement application Security in your workload?	sec_sec_q3_no	None of these

@@ -1,0 +1,4 @@
+== IDENTITY
+arn:aws:iam::<ACCOUNT_ID>:user/admin
+== CREDENTIAL TYPE
+key prefix: ASIA | expires: 2026-10-26T19:43:08+00:00

@@ -1,0 +1,4 @@
+== ANALYZER
+account-external-access	ACCOUNT	ACTIVE
+== ACTIVE FINDINGS
+(end of findings)

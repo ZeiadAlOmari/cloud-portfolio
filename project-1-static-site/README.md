@@ -72,7 +72,7 @@ within the free tier. A custom domain can be added later.
 2. **Add a proper ACM certificate** attached to the CloudFront distribution
 3. **Enable S3 versioning** to keep a history of file changes
 4. **Add CloudFront logging** to an S3 bucket for access analytics
-5. **Use S3 + CloudFront Origin Access Control** instead of public bucket
+5. ~~**Use S3 + CloudFront Origin Access Control** instead of public bucket~~ **Done in Project 8** (see below)
    policy for better security
 6. **Add a CI/CD pipeline** that automatically deploys on git push
 7. **Add a CloudFront function** to handle URL redirects (e.g., /about → /about.html)
@@ -120,3 +120,19 @@ within the free tier. A custom domain can be added later.
 - ACM certificates for CloudFront must be created in us-east-1
 - Terraform's `plan` command is essential for previewing changes safely
 - Free tier limits are generous enough for learning and portfolio projects
+
+## Project 8 Update (2026-10-26)
+
+The [Project 8 Well-Architected review](../project-8-well-architected/) found the bucket publicly readable,
+so CloudFront could be bypassed (F-04), and the CloudFront-to-S3 hop on plain HTTP (F-05). Changes, all free:
+
+| Before | After |
+|---|---|
+| Origin: S3 **website** endpoint, `http-only` | Origin: S3 **REST** endpoint over HTTPS, signed with **Origin Access Control** (SigV4) |
+| Bucket policy `Principal: *`, Block Public Access off | Policy allows only `cloudfront.amazonaws.com` for this distribution's ARN, plus `DenyInsecureTransport`; all four Block Public Access flags on |
+| S3 static website hosting enabled | Removed; `custom_error_response` 403/404 → `/index.html` keeps the old error-document behaviour |
+| HTTP/2 | HTTP/2 + HTTP/3 |
+| Outputs `website_bucket_name`, `website_url` (S3 endpoint), `cloudfront_url` | Outputs `bucket_name`, `cloudfront_distribution_id`, `cloudfront_domain_name`, `website_url` (HTTPS CloudFront URL) |
+
+Verified: direct S3 website endpoint `404`, direct object `403`, CloudFront `200`, bucket policy `IsPublic=False`,
+IAM Access Analyzer 0 findings.
