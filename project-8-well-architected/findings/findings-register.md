@@ -110,7 +110,7 @@ Tearing down P6 deleted the account-level trail with the project stack. A trail 
 
 **F-02 — Admin IAM user (AdministratorAccess) used via a 68-day-old long-lived access key**  
 Account · Security · High · Remediated  
-CLI moved to `aws login` (browser sign-in with MFA, temporary ASIA credentials). Terraform uses a `credential_process` profile because its SDK cannot read `aws login` sessions directly. Old key deactivated and verified rejected (InvalidClientTokenId); deletion after a soak period.
+CLI moved to `aws login` (browser sign-in with MFA, temporary ASIA credentials). Terraform uses a `credential_process` profile because its SDK cannot read `aws login` sessions directly. Old key deactivated and verified rejected (InvalidClientTokenId); deleted 2026-11-01 after a 5-day soak (admin has 0 access keys).
 
 **F-03 — No IAM password policy (P6 teardown regression)**  
 Account · Security · Medium · Remediated  

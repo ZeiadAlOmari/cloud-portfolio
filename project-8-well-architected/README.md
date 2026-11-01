@@ -130,7 +130,7 @@ reviewed as built and then destroyed rather than redesigned.
 | F-03 Password policy | `NoSuchEntity` | 14 chars, 4 classes, 24 reuse, no forced expiry | 02, 20 |
 | F-35 Access Analyzer | None | `ACTIVE`, 0 findings | 21 |
 | F-63 Budget | First alert at USD 4 | Added ACTUAL > USD 0.01 alert | 22, 28 |
-| F-02 Admin access key | `AKIA` key, 68 days old, used for all CLI work | CLI and Terraform on `ASIA` temporary credentials via `aws login`; key `Inactive`; old profile `InvalidClientTokenId` | 30–32 |
+| F-02 Admin access key | `AKIA` key, 68 days old, used for all CLI work | CLI and Terraform on `ASIA` temporary credentials via `aws login`; key deactivated, then deleted 2026-11-01; old profile `InvalidClientTokenId` | 30–32 |
 | F-60 Repo hygiene | `*tfplan*` not ignored; stray empty root state file | Ignored; removed | 17, 34 |
 
 ### Leftover sweep (after cleanup)
@@ -164,7 +164,6 @@ pairs, RDS instances, snapshots, parameter and subnet groups, REST and HTTP APIs
 - **P2–P7 are reviewed from documents, not live resources.** Their findings are *Design findings*, each with the free fix written down but not rebuilt.
 - **One reviewer.** The same person built and reviewed the workloads, without an independent second review.
 - The WA Tool risk counts reflect a learning account measured against production practice; they aren't a maturity score.
-- The deactivated admin access key still exists until it's deleted after a soak period.
 - `aws login` sessions expire, so the CLI needs a browser sign-in about once a day. Terraform can't read these sessions natively and goes through a `credential_process` profile.
 - No recurring review cadence yet. The milestones are one-off.
 
