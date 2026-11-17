@@ -1,0 +1,23 @@
+== subscription
+----------------------------------------------------------------------------------------------------
+|                                     ListSubscriptionsByTopic                                     |
++----------+---------------------------------------------------------------------------------------+
+|  Protocol|  email                                                                                |
+|  Status  |  arn:aws:sns:us-east-1:<account>:p10-alarms:9fb346c8-df5d-4c84-9bbd-d1a3eee13b0b   |
++----------+---------------------------------------------------------------------------------------+
+== poison message (missing id/data/timestamp)
+a8142e9c-1c42-41ba-805c-393144111e6a
+== duplicate delivery x2 (same id)
+d7a4074d-b882-4935-8f81-d4fc16f63f0a
+db5122bd-e791-4248-93c1-b9b3c555e82c
+== sent at 18:40:41Z; waiting 20s
+== stats (expect total 3, dup-test 1)
+GET /stats -> 200 (signed as client role)
+{
+  "total_records": 3,
+  "by_source": {
+    "sensor-a": 1,
+    "sensor-b": 1,
+    "dup-test": 1
+  }
+}

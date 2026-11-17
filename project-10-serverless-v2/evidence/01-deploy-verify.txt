@@ -1,0 +1,31 @@
+== BOUNDARY ON EVERY P10 ROLE
+p10-ingest-role: p10-workload-boundary
+p10-process-role: p10-workload-boundary
+p10-query-role: p10-workload-boundary
+p10-api-client: p10-workload-boundary
+== FUNCTIONS
+p10-ingest	arm64	Active	python3.12
+p10-process	arm64	Active	python3.12
+p10-query	arm64	Active	python3.12
+== UNSIGNED (expect 403)
+GET /stats -> 404 (unsigned)
+{
+  "message": "Not Found"
+}
+== SIGNED AS CLIENT ROLE
+POST /ingest -> 404 (signed as client role)
+{
+  "message": "Not Found"
+}
+POST /ingest -> 404 (signed as client role)
+{
+  "message": "Not Found"
+}
+POST /ingest -> 404 (signed as client role)
+{
+  "message": "Not Found"
+}
+GET /stats -> 404 (signed as client role)
+{
+  "message": "Not Found"
+}

@@ -1,0 +1,12 @@
+== STATE: API GATEWAY RESOURCES
+aws_apigatewayv2_api.main
+aws_apigatewayv2_integration.fn["ingest"]
+aws_apigatewayv2_integration.fn["query"]
+aws_apigatewayv2_route.r["GET /data"]
+aws_apigatewayv2_route.r["GET /data/{id}"]
+aws_apigatewayv2_route.r["GET /stats"]
+aws_apigatewayv2_route.r["POST /ingest"]
+== STATE: STAGE DETAIL
+== CLOUDTRAIL: STAGE EVENTS (last 2h)
+2026-11-17T17:03:15+03:00	CreateStage	gha-p10-apply-44098804494
+(end)

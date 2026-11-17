@@ -1,0 +1,14 @@
+2026-11-17T14:04:31Z apigateway CreateIntegration ok 
+2026-11-17T14:04:31Z apigateway CreateIntegration ok 
+2026-11-17T14:04:31Z apigateway CreateRoute ConflictException 
+2026-11-17T14:04:31Z apigateway CreateRoute ok 
+2026-11-17T14:04:31Z apigateway CreateRoute ok 
+2026-11-17T14:04:31Z apigateway CreateRoute ok 
+2026-11-17T14:04:31Z apigateway GetIntegration ok 
+2026-11-17T14:04:31Z apigateway GetIntegration ok 
+2026-11-17T14:04:31Z apigateway GetRoute ok 
+2026-11-17T14:04:31Z apigateway GetRoute ok 
+2026-11-17T14:04:32Z apigateway CreateRoute ok 
+2026-11-17T14:04:32Z apigateway GetRoute ok 
+2026-11-17T14:04:32Z apigateway GetRoute ok 
+total calls in window: 50

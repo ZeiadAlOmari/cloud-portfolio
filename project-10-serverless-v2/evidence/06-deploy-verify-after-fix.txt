@@ -1,0 +1,63 @@
+== stages
+-----------------------------------------------------------
+|                        GetStages                        |
++------------+-------------+--------+--------+------------+
+| AccessLogs | AutoDeploy  | Burst  | Rate   |   Stage    |
++------------+-------------+--------+--------+------------+
+|  True      |  True       |  10    |  5.0   |  $default  |
++------------+-------------+--------+--------+------------+
+== unsigned (expect 403)
+GET /stats -> 403 (unsigned)
+{
+  "message": "Forbidden"
+}
+== signed ingest (expect 202, 202, 400)
+POST /ingest -> 202 (signed as client role)
+{
+  "status": "accepted",
+  "message_id": "e99bff93-5f50-425a-b9e4-07ff140f8e1a",
+  "timestamp": "2026-11-17T18:35:17.253851+00:00"
+}
+POST /ingest -> 202 (signed as client role)
+{
+  "status": "accepted",
+  "message_id": "a207a29d-db80-4029-861e-09584eb1021f",
+  "timestamp": "2026-11-17T18:35:22.198395+00:00"
+}
+POST /ingest -> 400 (signed as client role)
+{
+  "error": "body must be a JSON object with a 'data' field"
+}
+== waiting 20s for SQS -> process
+== stats (expect total 2)
+GET /stats -> 200 (signed as client role)
+{
+  "total_records": 2,
+  "by_source": {
+    "sensor-a": 1,
+    "sensor-b": 1
+  }
+}
+== list
+GET /data?limit=5 -> 200 (signed as client role)
+{
+  "count": 2,
+  "items": [
+    {
+      "processed_at": "2026-11-17T18:35:22.258826+00:00",
+      "status": "processed",
+      "data": "{\"temp\": 19.0}",
+      "timestamp": "2026-11-17T18:35:22.198395+00:00",
+      "source": "sensor-b",
+      "id": "a207a29d-db80-4029-861e-09584eb1021f"
+    },
+    {
+      "source": "sensor-a",
+      "timestamp": "2026-11-17T18:35:17.253851+00:00",
+      "processed_at": "2026-11-17T18:35:18.322731+00:00",
+      "data": "{\"temp\": 21.5}",
+      "id": "e99bff93-5f50-425a-b9e4-07ff140f8e1a",
+      "status": "processed"
+    }
+  ]
+}

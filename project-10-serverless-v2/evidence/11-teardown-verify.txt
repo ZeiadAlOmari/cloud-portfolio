@@ -1,0 +1,11 @@
+== independent teardown check 2026-11-17T19:10:52Z
+Lambda functions:   0
+Event source maps:  0
+DynamoDB tables:    0
+SQS queues:         0
+HTTP APIs:          0
+SNS topics:         0
+CloudWatch alarms:  0
+Log groups:         0
+IAM roles p10-*:    0
+Kept (P9 bootstrap): gha-p10-apply	gha-p10-plan

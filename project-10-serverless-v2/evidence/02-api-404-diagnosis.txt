@@ -1,0 +1,9 @@
+== API
+p10-api	https://tjgzmrvqzh.execute-api.us-east-1.amazonaws.com	HTTP
+== STAGES
+== ROUTES
+GET /stats	AWS_IAM	integrations/c1t80pi
+GET /data/{id}	AWS_IAM	integrations/c1t80pi
+GET /data	AWS_IAM	integrations/c1t80pi
+POST /ingest	AWS_IAM	integrations/7doz4h2
+== DEPLOYMENTS

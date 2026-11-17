@@ -1,0 +1,30 @@
+== API access logs (since 18:30Z)
+{"authError":"The request for the IAM Authorizer doesn't match the format that API Gateway expects.","caller":"-","integrationError":"-","ip":"<IP>","latencyMs":"0","requestId":"G_2vAi15IAMESIw=","routeKey":"GET /stats","status":"403"}
+{"authError":"-","caller":"<ROLE_ID>:p10-api-test","integrationError":"-","ip":"<IP>","latencyMs":"1053","requestId":"G_2vyh6lIAMESTQ=","routeKey":"POST /ingest","status":"202"}
+{"authError":"-","caller":"<ROLE_ID>:p10-api-test","integrationError":"-","ip":"<IP>","latencyMs":"86","requestId":"G_2wqgmlIAMESmQ=","routeKey":"POST /ingest","status":"202"}
+{"authError":"-","caller":"<ROLE_ID>:p10-api-test","integrationError":"-","ip":"<IP>","latencyMs":"58","requestId":"G_2xbj3MIAMESIw=","routeKey":"POST /ingest","status":"400"}
+{"authError":"-","caller":"<ROLE_ID>:p10-api-test","integrationError":"-","ip":"<IP>","latencyMs":"1000","requestId":"G_21WiEYIAMESSQ=","routeKey":"GET /stats","status":"200"}
+{"authError":"-","caller":"<ROLE_ID>:p10-api-test","integrationError":"-","ip":"<IP>","latencyMs":"68","requestId":"G_22NhE_IAMES5A=","routeKey":"GET /data","status":"200"}
+{"authError":"-","caller":"<ROLE_ID>:p10-api-test","integrationError":"-","ip":"<IP>","latencyMs":"806","requestId":"G_3ttjKFIAMEVkg=","routeKey":"GET /stats","status":"200"}
+== X-Ray trace summaries
+--------------------------------------------------------
+|                   GetTraceSummaries                  |
++----------+-----------+-----------+----------+--------+
+| Duration | HasError  | HasFault  | Status   |  Url   |
++----------+-----------+-----------+----------+--------+
+|  0.058   |  False    |  False    |  200     |  None  |
+|  0.056   |  False    |  False    |  200     |  None  |
+|  0.796   |  False    |  False    |  200     |  None  |
+|  0.625   |  False    |  False    |  200     |  None  |
+|  0.009   |  False    |  False    |  200     |  None  |
+|  0.535   |  False    |  False    |  200     |  None  |
+|  0.979   |  False    |  False    |  200     |  None  |
+|  0.079   |  False    |  False    |  200     |  None  |
+|  0.996   |  False    |  False    |  200     |  None  |
+|  0.045   |  False    |  False    |  200     |  None  |
+|  0.032   |  False    |  False    |  200     |  None  |
+|  0.983   |  False    |  False    |  200     |  None  |
++----------+-----------+-----------+----------+--------+
+== services in one ingest trace
+
+aws: [ERROR]: An error occurred (InvalidRequestException) when calling the BatchGetTraces operation: Invalid trace id None: incorrect id format
