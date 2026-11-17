@@ -1,6 +1,9 @@
 # Project 10: serverless v2 deployed through the Project 9 pattern.
 #   pull request -> unit tests + Checkov + terraform plan (read-only role)
 #   push to main -> unit tests + Checkov + terraform apply (P10 role; created roles must carry the p10 boundary)
+# Deploy switch: apply runs only while the repository variable P10_DEPLOY_ENABLED is 'true'.
+# The stack is torn down, so the switch is 'false': nothing can recreate it by accident (P8 finding F-36).
+# Docs-only changes (*.md, diagrams, evidence) don't start the workflow.
 name: P10 Serverless v2
 
 on:
@@ -8,11 +11,17 @@ on:
     branches: [main]
     paths:
       - "project-10-serverless-v2/**"
+      - "!project-10-serverless-v2/**/*.md"
+      - "!project-10-serverless-v2/diagrams/**"
+      - "!project-10-serverless-v2/evidence/**"
       - ".github/workflows/p10-terraform.yml"
   push:
     branches: [main]
     paths:
       - "project-10-serverless-v2/**"
+      - "!project-10-serverless-v2/**/*.md"
+      - "!project-10-serverless-v2/diagrams/**"
+      - "!project-10-serverless-v2/evidence/**"
       - ".github/workflows/p10-terraform.yml"
   workflow_dispatch:
 
@@ -102,9 +111,20 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
+  deploy-disabled:
+    name: Deploy switch is off
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && vars.P10_DEPLOY_ENABLED != 'true'
+    needs: [tests, checkov]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report that apply was skipped
+        run: |
+          echo "::notice title=P10 not deployed::Repository variable P10_DEPLOY_ENABLED is not 'true'; apply skipped on purpose."
+          echo "P10 apply skipped: deploy switch P10_DEPLOY_ENABLED is off (stack intentionally torn down)." >> "$GITHUB_STEP_SUMMARY"
+
   apply:
     name: Terraform apply (P10 role)
-    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && vars.P10_DEPLOY_ENABLED == 'true'
     needs: [tests, checkov]
     runs-on: ubuntu-latest
     permissions:
