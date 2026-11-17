@@ -22,6 +22,11 @@ on:
 permissions:
   contents: read # least privilege by default (P8 finding F-33)
 
+# Explicit bash turns on 'pipefail': without it, 'terraform apply | tee' reported success after a failed apply.
+defaults:
+  run:
+    shell: bash
+
 concurrency:
   group: p1-terraform
   cancel-in-progress: false # never cancel an apply half-way
