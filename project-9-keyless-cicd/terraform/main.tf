@@ -136,7 +136,7 @@ data "aws_iam_policy_document" "trust_plan" {
     condition {
       test     = "StringEquals"
       variable = "${local.oidc_host}:sub"
-      values   = ["repo:${var.github_repo}:pull_request"]
+      values   = ["${var.github_sub_prefix}:pull_request"]
     }
   }
 }
@@ -156,7 +156,7 @@ data "aws_iam_policy_document" "trust_apply" {
     condition {
       test     = "StringEquals"
       variable = "${local.oidc_host}:sub"
-      values   = ["repo:${var.github_repo}:ref:refs/heads/main"]
+      values   = ["${var.github_sub_prefix}:ref:refs/heads/main"]
     }
   }
 }
@@ -273,3 +273,9 @@ resource "aws_iam_role_policy" "apply_write" {
 output "state_bucket" { value = aws_s3_bucket.state.id }
 output "plan_role_arn" { value = aws_iam_role.plan.arn }
 output "apply_role_arn" { value = aws_iam_role.apply.arn }
+
+# GitHub OIDC subject prefix with immutable owner and repository IDs (format seen in CloudTrail).
+variable "github_sub_prefix" {
+  type    = string
+  default = "repo:ZeiadAlOmari@318468395/cloud-portfolio@1339061930"
+}
