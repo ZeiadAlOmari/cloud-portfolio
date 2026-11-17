@@ -21,6 +21,7 @@ message exactly once, raises an alarm when data is rejected, and was **torn down
 | A hidden failure in the pipeline was found, explained and fixed (see Design Decisions) | [02](evidence/02-api-404-diagnosis.txt)–[05](evidence/05-stage-calls.txt) |
 | **13 Project 8 findings fixed** in the design (table below) | |
 | 35 resources destroyed, then confirmed **0** by direct AWS CLI queries | [10](evidence/10-teardown.txt), [11](evidence/11-teardown-verify.txt) |
+| A **deploy switch** keeps it down: merges to `main` skip apply while `P10_DEPLOY_ENABLED` is off | Run #7 below |
 
 ### Project 8 findings fixed
 
@@ -40,7 +41,7 @@ message exactly once, raises an alarm when data is rejected, and was **torn down
 | F-50 🟡 | x86_64 | arm64 (Graviton) |
 | F-51 🟡 | No concurrency limit | Capped with SQS `maximum_concurrency = 2` and API throttling (see Known Limitations) |
 
-F-41 (DLQ with redrive) was a strength and was kept. F-36 is answered by the teardown check at the end.
+F-41 (DLQ with redrive) was a strength and was kept. F-36 is answered by the verified teardown and the deploy switch.
 
 ## Architecture
 
@@ -82,7 +83,8 @@ Editable source: [`diagrams/p10-serverless-v2.drawio`](diagrams/p10-serverless-v
 | X-Ray | Active tracing on every function | Per-invocation traces of each function |
 | `p10-workload-boundary` | IAM permissions boundary (Project 9 bootstrap stack) | Caps what any P10 role can do, even if its own policy is wider |
 | `gha-p10-plan` / `gha-p10-apply` | OIDC-trusted CI roles (Project 9 bootstrap stack) | Plan on pull requests, apply on `main`; nothing stored in GitHub but role ARNs |
-| `.github/workflows/p10-terraform.yml` | GitHub Actions workflow | Unit tests (pytest + moto) and Checkov, then plan or apply |
+| `.github/workflows/p10-terraform.yml` | GitHub Actions workflow | Unit tests (pytest + moto) and Checkov, then plan or apply; docs-only changes don't start it |
+| `P10_DEPLOY_ENABLED` | GitHub repository variable | Deploy switch: apply runs only while it's `true` (now `false`) |
 | `tests/test_functions.py` | 5 unit tests against moto's in-memory AWS | Validation, partial batch failures, idempotency, `/stats` |
 
 ## Design Decisions
@@ -123,6 +125,13 @@ Access-logging permissions that AWS documents as required were added on the way 
 Enabling HTTP API access logging checks those `logs` permissions with `Resource: "*"`, as documented by AWS. It's the
 one wide grant, it's limited to log-delivery actions, and the boundary still applies to every workload role.
 
+**Why a deploy switch?**
+With the stack torn down, the next code change merged to `main` would have recreated it, quietly, the same way Project 4
+stayed alive without anyone deciding it should. Apply now runs only while the repository variable `P10_DEPLOY_ENABLED`
+is `true`; otherwise a "Deploy switch is off" job records the skip in the run summary. Pull requests still get tests,
+Checkov and a read-only plan, so the code stays checked while nothing runs. Changes to `*.md`, `diagrams/` and
+`evidence/` don't start the workflow at all.
+
 **Why is the e-mail subscription not in Terraform?**
 The address would be committed to a public repository. It was added once with `aws sns subscribe` and removed with the
 topic at teardown.
@@ -145,6 +154,7 @@ topic at teardown.
 | X-Ray | 12 traces, no errors or faults |
 | Unit tests | 5 passed (pytest + moto) |
 | Checkov | P10: 109 passed, 0 failed, 27 skipped (per resource instance). Bootstrap: 146 passed, 0 failed, 6 skipped |
+| Deploy switch | Run #7 (merge of the workflow change, switch `false`): tests and Checkov passed, apply skipped, AWS still empty |
 | Teardown | `Destroy complete! Resources: 35 destroyed`; state empty; Lambda, ESM, DynamoDB, SQS, API, SNS, alarms, log groups and `p10-*` roles all **0** ([10](evidence/10-teardown.txt), [11](evidence/11-teardown-verify.txt)) |
 
 ## Cost Analysis
@@ -172,7 +182,10 @@ VPC-attached functions (would need NAT or endpoints), WAF, Lambda code signing.
 - **The test client role trusts one IAM user** in this account; a real caller would get its own role.
 - **Teardown ran from the laptop**, not the pipeline, after switching off deletion protection. There's no destroy job,
   on purpose: the apply role isn't meant to remove data.
-- **The CI roles and boundary remain** (Project 9 bootstrap stack), at no cost, so the stack can be redeployed by a merge.
+- **The CI roles and boundary remain** (Project 9 bootstrap stack), at no cost, so the stack can be redeployed by
+  switching `P10_DEPLOY_ENABLED` to `true` and running the workflow.
+- **Docs-only pull requests run no workflow**, so the required `Policy gate (Checkov)` check never reports on them;
+  docs are pushed directly by the repository admin.
 
 ## Deployment
 
@@ -183,23 +196,25 @@ cd project-9-keyless-cicd/terraform && terraform apply
 # 2. Repository secrets AWS_P10_PLAN_ROLE_ARN and AWS_P10_APPLY_ROLE_ARN
 #    https://github.com/<owner>/<repo>/settings/secrets/actions
 
-# 3. Deploy: open a pull request (tests + Checkov + plan), then merge (apply), or run the workflow manually
+# 3. Deploy switch: repository variable P10_DEPLOY_ENABLED = true
+#    https://github.com/<owner>/<repo>/settings/variables/actions
+# 4. Deploy: open a pull request (tests + Checkov + plan), then merge (apply), or run the workflow manually
 #    https://github.com/<owner>/<repo>/actions/workflows/p10-terraform.yml
 
-# 4. Optional: alarm e-mails (kept out of Git)
+# 5. Optional: alarm e-mails (kept out of Git)
 aws sns subscribe --topic-arn "$(terraform -chdir=project-10-serverless-v2/terraform output -raw alarm_topic_arn)" \
   --protocol email --notification-endpoint you@example.com
 
-# 5. Call the API as the client role
+# 6. Call the API as the client role
 cd project-10-serverless-v2
 python scripts/call_api.py "$(terraform -chdir=terraform output -raw api_endpoint)" POST /ingest \
   '{"source":"sensor-a","data":{"temp":21.5}}' --role "$(terraform -chdir=terraform output -raw client_role_arn)"
 
-# 6. Teardown: switch off deletion protection, then destroy, then check with the AWS CLI
+# 7. Teardown: switch off deletion protection, destroy, check with the AWS CLI, set P10_DEPLOY_ENABLED = false
 terraform -chdir=terraform apply -var protect_data=false
 terraform -chdir=terraform destroy -var protect_data=false
 
-# 7. Publish evidence without account ID, e-mail, IP or role IDs
+# 8. Publish evidence without account ID, e-mail, IP or role IDs
 bash scripts/sanitize-evidence.sh
 ```
 
@@ -217,3 +232,5 @@ bash scripts/sanitize-evidence.sh
 - **Deletion protection works on its owner too.** Teardown takes a deliberate first step to switch it off.
 - **Verify the teardown outside the tool that did it.** Project 4 was forgotten for 8 weeks; this one was checked
   service by service.
+- **"Torn down" should be a control, not a promise.** Without the deploy switch, the next merge would have rebuilt the
+  stack.

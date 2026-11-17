@@ -16,7 +16,7 @@ The review had two kinds of evidence:
 **Headline results**
 
 - **69 findings** in one register ([`findings/findings-register.md`](findings/findings-register.md)): 12 High, 24 Medium, 17 Low, 16 strengths or closed items.
-- **16 remediated and verified**, including 4 of the 12 Highs. Every fix was free. Three of them (F-23, F-33, F-57) were fixed by the follow-up [Project 9](../project-9-keyless-cicd/).
+- **27 remediated and verified**, including 6 of the 12 Highs. Every fix was free. Three (F-23, F-33, F-57) were fixed by the follow-up [Project 9](../project-9-keyless-cicd/), and eleven more by [Project 10](../project-10-serverless-v2/), which rebuilt Project 4 to fix its findings, tested it live and tore it down again.
 - **The live review found a forgotten workload.** Project 4 had never been destroyed and ran for about 8 weeks, with an unauthenticated, unthrottled public API (F-36, F-42, F-43). It was found through an IAM role's "last used" timestamp, captured as evidence, destroyed and verified.
 - **Tearing down Project 6 brought back the security gaps it had fixed.** The account-level controls (trail, password policy, Access Analyzer) were in the project stack, so tearing it down deleted them. That's the central lesson: **account baseline controls need a lifecycle separate from projects.**
 - The October bill was **USD 0.00**. Every paid alternative is recorded as an explicit cost decision.
@@ -116,7 +116,8 @@ git-ignored and the risk counts are summarised below instead. Published evidence
 | M3 Short-lived CLI credentials, admin key deactivated | 39 / 17 / 1 | 7 / 2 |
 
 All 66 questions answered in every milestone (0 unanswered). The Serverless lens doesn't change because P4 was
-reviewed as built and then destroyed rather than redesigned.
+reviewed as built and then destroyed. Its redesign came later, in Project 10, and is recorded in the register rather than
+as a new milestone.
 
 ### Remediations (all verified)
 
@@ -134,6 +135,10 @@ reviewed as built and then destroyed rather than redesigned.
 | F-60 Repo hygiene | `*tfplan*` not ignored; stray empty root state file | Ignored; removed | 17, 34 |
 | F-23 / F-33 CI credentials (P9) | P3 design: static AWS keys + SSH key in GitHub, default token scopes | GitHub OIDC; read-only role for pull requests, P1-scoped role for `main`; `contents: read` by default | [P9](../project-9-keyless-cicd/) |
 | F-57 P1 versioning (P9) | Versioning off | Enabled with a 30-day lifecycle rule, shipped through the P9 pipeline | [P9](../project-9-keyless-cicd/) |
+| F-42 / F-43 P4 API (P10) | Every route open, no throttling | `AWS_IAM` on all routes (unsigned `403`, signed `202`); stage throttled at 5/s, burst 10 | [P10](../project-10-serverless-v2/) |
+| F-38 / F-39 / F-47 P4 IAM and monitoring (P10) | One shared role, no alarms, no access logs or tracing | One bounded role per function; DLQ and error alarms to e-mail (DLQ alarm fired in test); access logs and X-Ray | [P10](../project-10-serverless-v2/) |
+| F-44 / F-45 / F-46 P4 messaging (P10) | Visibility = timeout; whole batch retried; DLQ expires with source | 180 s visibility; partial batch failures (poison message alone to the DLQ); DLQ kept 14 days | [P10](../project-10-serverless-v2/) |
+| F-48 / F-50 / F-51 P4 efficiency (P10) | `/stats` scanned the table; x86_64; no concurrency cap | Counters table; arm64; SQS `maximum_concurrency = 2` (reserved concurrency impossible at the account limit of 10) | [P10](../project-10-serverless-v2/) |
 
 ### Leftover sweep (after cleanup)
 

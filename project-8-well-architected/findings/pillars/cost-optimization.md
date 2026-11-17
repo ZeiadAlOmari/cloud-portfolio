@@ -4,17 +4,19 @@ Findings tagged **Cost Optimization** (primary or secondary). Full register: [`.
 
 | Status | Count |
 |---|---|
-| Remediated | 6 |
+| Remediated | 9 |
 | Cost decision | 1 |
-| Design finding | 3 |
 | Closed | 1 |
 | Strength | 4 |
 
 ## Remediated
 
-- **F-36** (P4, 🔴 High, `decomissioning-resources`) — Project 4 never destroyed - 21 resources live ~8 weeks. Lambda SQS event-source mapping polled 24/7 under `serverless-lambda-role` (found via the role's last-used date). Snapshot captured with `terraform show -json`, then `terraform destroy`, verified per service. _Evidence: 04, 05, 06, 07, 08, 09_
-- **F-40** (P4, 🟠 Medium, `decomissioning-resources`) — Lambda log groups not Terraform-managed (never-expire retention) and orphaned by destroy. Deleted and verified. Code fix: `aws_cloudwatch_log_group` per function with `retention_in_days`. _Evidence: 09, 10_
+- **F-36** (P4, 🔴 High, `decomissioning-resources`) — Project 4 never destroyed - 21 resources live ~8 weeks. Lambda SQS event-source mapping polled 24/7 under `serverless-lambda-role` (found via the role's last-used date). Snapshot captured with `terraform show -json`, then `terraform destroy`, verified per service. Project 10 makes this a control rather than a habit: its rebuild was destroyed and checked service by service, and its pipeline can only deploy while the `P10_DEPLOY_ENABLED` switch is on. _Evidence: 04, 05, 06, 07, 08, 09, P10_
+- **F-43** (P4, 🔴 High, `mitigate-interaction-failure`) — No stage throttling (0/0) - denial-of-wallet exposure combined with F-42. Stage throttling is free. Fixed in Project 10 (rebuilt, verified live, then torn down): `$default` stage at 5 requests/s, burst 10. _Evidence: 08, P10_
+- **F-40** (P4, 🟠 Medium, `decomissioning-resources`) — Lambda log groups not Terraform-managed (never-expire retention) and orphaned by destroy. Deleted and verified. Code fix applied in Project 10: `aws_cloudwatch_log_group` per function with 14-day retention, removed by destroy (0 left). _Evidence: 09, 10, P10_
 - **F-37** (P4, 🟡 Low, `decomissioning-resources`) — Retired SAM version left its `aws-sam-cli-managed-default` bootstrap stack. Bucket emptied (all versions and delete markers), stack deleted, both verified gone. _Evidence: 06, 11, 12, 13_
+- **F-48** (P4, 🟡 Low, `data-management`) — /stats uses DynamoDB Scan - cost and latency grow with table size. Fixed in Project 10 (rebuilt, verified live, then torn down): counters table updated in the same transaction as each record; /stats reads a few rows. _Evidence: 08, P10_
+- **F-50** (P4, 🟡 Low, `sus_hardware`) — x86_64 Lambdas. arm64 (Graviton) is ~20% cheaper per GB-second; no migration cost for pure Python. Fixed in Project 10 (rebuilt, verified live, then torn down): all three functions arm64. _Evidence: 08, P10_
 - **F-52** (P4, 🟡 Low, `decomissioning-resources`) — Versioned SAM bucket kept 8 noncurrent versions behind delete markers. No lifecycle rule, so 'deleted' data was still stored. Removed with the stack; fix pattern: `NoncurrentVersionExpiration`. _Evidence: 11_
 - **F-54** (P1, 🟡 Low, `data-transfer`) — Direct bucket reads bypassed CloudFront caching and free tier. Fixed by OAC. _Evidence: 18, 19_
 - **F-63** (Account, 🟡 Low, `cloud-financial-management`) — Budget threshold too loose for a zero-spend account. First alert fired at USD 4 (80% of 5), so a leftover could cost dollars silently. Added an ACTUAL > USD 0.01 alert to the existing budget. _Evidence: 22, 28_
@@ -22,12 +24,6 @@ Findings tagged **Cost Optimization** (primary or secondary). Full register: [`.
 ## Cost decision
 
 - **F-66** (Account, 🟠 Medium, `identities`) — IAM Identity Center not adopted. Identity Center is free, but enabling it creates an AWS Organization, which moves the account from the Free Plan to pay-as-you-go and expires remaining credits (console warning). `aws login` short-lived credentials used instead (F-02). _Evidence: 30_
-
-## Design finding
-
-- **F-43** (P4, 🔴 High, `mitigate-interaction-failure`) — No stage throttling (0/0) - denial-of-wallet exposure combined with F-42. Stage throttling is free. _Evidence: 08_
-- **F-48** (P4, 🟡 Low, `data-management`) — /stats uses DynamoDB Scan - cost and latency grow with table size _Evidence: 08_
-- **F-50** (P4, 🟡 Low, `sus_hardware`) — x86_64 Lambdas. arm64 (Graviton) is ~20% cheaper per GB-second; no migration cost for pure Python. _Evidence: 08_
 
 ## Closed
 

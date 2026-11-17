@@ -4,17 +4,13 @@ Findings tagged **Performance Efficiency** (primary or secondary). Full register
 
 | Status | Count |
 |---|---|
-| Remediated | 1 |
-| Design finding | 1 |
+| Remediated | 2 |
 | Strength | 1 |
 
 ## Remediated
 
+- **F-48** (P4, 🟡 Low, `data-management`) — /stats uses DynamoDB Scan - cost and latency grow with table size. Fixed in Project 10 (rebuilt, verified live, then torn down): counters table updated in the same transaction as each record; /stats reads a few rows. _Evidence: 08, P10_
 - **F-58** (P1, 🟡 Low, `networking`) — HTTP/2 only. `http_version = http2and3`; `alt-svc: h3` verified. _Evidence: 19_
-
-## Design finding
-
-- **F-48** (P4, 🟡 Low, `data-management`) — /stats uses DynamoDB Scan - cost and latency grow with table size _Evidence: 08_
 
 ## Strength
 
