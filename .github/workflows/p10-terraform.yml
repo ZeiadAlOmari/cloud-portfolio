@@ -19,6 +19,11 @@ on:
 permissions:
   contents: read
 
+# Explicit bash turns on 'pipefail': without it, 'terraform apply | tee' reported success after a failed apply.
+defaults:
+  run:
+    shell: bash
+
 concurrency:
   group: p10-terraform
   cancel-in-progress: false

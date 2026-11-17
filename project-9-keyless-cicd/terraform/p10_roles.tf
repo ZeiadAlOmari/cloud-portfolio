@@ -163,6 +163,8 @@ data "aws_iam_policy_document" "p10_read" {
 
 # ---------------- Write access (apply role only) ----------------
 data "aws_iam_policy_document" "p10_write" {
+  #checkov:skip=CKV_AWS_356:API Gateway requires logs:CreateLogGroup on "*" for the caller that enables HTTP API access logging (AWS docs: http-api-logging); without it CreateStage is denied
+  #checkov:skip=CKV_AWS_111:Same AWS requirement - logs:CreateLogGroup with Resource "*" for HTTP API access logging; all other writes are scoped to p10-* resources
   statement {
     sid       = "StateWrite"
     actions   = ["s3:PutObject"]
@@ -255,12 +257,17 @@ data "aws_iam_policy_document" "p10_write" {
     ]
   }
   statement {
-    sid = "ApiAccessLogDelivery" # required by API Gateway to enable access logging; no resource-level scoping
+    sid = "ApiAccessLogDelivery" # exact permissions AWS requires to enable HTTP API access logging (checked with Resource "*")
     actions = [
       "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery",
-      "logs:ListLogDeliveries", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies",
+      "logs:ListLogDeliveries", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:CreateLogGroup",
     ]
     resources = ["*"]
+  }
+  statement {
+    sid       = "ApiAccessLogRead" # also required by API Gateway when enabling access logging
+    actions   = ["logs:DescribeLogGroups", "logs:DescribeLogStreams", "logs:GetLogEvents", "logs:FilterLogEvents"]
+    resources = ["${local.arn_logs}:log-group:*"]
   }
   statement {
     sid       = "ManageHttpApis"
