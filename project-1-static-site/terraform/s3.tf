@@ -14,9 +14,26 @@ resource "aws_s3_bucket" "website" {
   #checkov:skip=CKV_AWS_144:Cross-region replication shown in P7; doubles storage and transfer (cost decision)
   #checkov:skip=CKV_AWS_145:SSE-S3 used; a customer-managed KMS key costs about USD 1/month (cost decision)
   #checkov:skip=CKV2_AWS_62:No consumer for bucket event notifications on a static site (not applicable)
-  #checkov:skip=CKV_AWS_21:TEMPORARY - versioning added in the first P9 pull request (P8 F-57)
-  #checkov:skip=CKV2_AWS_61:TEMPORARY - lifecycle rule added in the first P9 pull request
   bucket = "portfolio-site-${random_string.bucket_suffix.result}"
+}
+
+# Versioning (P8 F-57): an overwritten or deleted index.html can be recovered.
+resource "aws_s3_bucket_versioning" "website" {
+  bucket = aws_s3_bucket.website.id
+  versioning_configuration { status = "Enabled" }
+}
+
+# Lifecycle (P8 F-52 lesson): old versions expire after 30 days instead of piling up.
+resource "aws_s3_bucket_lifecycle_configuration" "website" {
+  bucket = aws_s3_bucket.website.id
+  rule {
+    id     = "expire-old-site-versions"
+    status = "Enabled"
+    filter {}
+    noncurrent_version_expiration { noncurrent_days = 30 }
+    abort_incomplete_multipart_upload { days_after_initiation = 1 }
+  }
+  depends_on = [aws_s3_bucket_versioning.website]
 }
 
 # Bucket policy: only this CloudFront distribution may read objects (OAC),

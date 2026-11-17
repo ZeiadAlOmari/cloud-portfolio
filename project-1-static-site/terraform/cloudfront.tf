@@ -11,6 +11,36 @@ resource "aws_cloudfront_origin_access_control" "website" {
   signing_protocol                  = "sigv4"
 }
 
+# Security response headers (free). Defined as a resource rather than referencing the AWS managed
+# SecurityHeadersPolicy by ID, so the settings are explicit and policy-as-code tools can see them.
+resource "aws_cloudfront_response_headers_policy" "security" {
+  name    = "${aws_s3_bucket.website.id}-security-headers"
+  comment = "HSTS, nosniff, frame, referrer and XSS protection headers"
+
+  security_headers_config {
+    strict_transport_security {
+      access_control_max_age_sec = 31536000
+      include_subdomains         = true
+      preload                    = true
+      override                   = true
+    }
+    content_type_options { override = true }
+    frame_options {
+      frame_option = "DENY"
+      override     = true
+    }
+    referrer_policy {
+      referrer_policy = "strict-origin-when-cross-origin"
+      override        = true
+    }
+    xss_protection {
+      protection = true
+      mode_block = true
+      override   = true
+    }
+  }
+}
+
 # CloudFront distribution
 resource "aws_cloudfront_distribution" "website" {
   #checkov:skip=CKV_AWS_174:TLSv1.2 minimum needs a custom domain + ACM certificate (P8 F-55, cost decision)
@@ -20,7 +50,6 @@ resource "aws_cloudfront_distribution" "website" {
   #checkov:skip=CKV_AWS_86:CloudFront access logs need log storage (P8 F-56, cost decision)
   #checkov:skip=CKV_AWS_310:Origin failover demonstrated in P7; needs a second bucket (cost decision)
   #checkov:skip=CKV_AWS_374:Public portfolio site intended for worldwide access (not applicable)
-  #checkov:skip=CKV2_AWS_32:TEMPORARY - security response headers policy added in the first P9 pull request
   enabled             = true
   default_root_object = "index.html"
   price_class         = "PriceClass_100" # North America and Europe only (cheapest)
@@ -39,6 +68,7 @@ resource "aws_cloudfront_distribution" "website" {
     target_origin_id       = "s3-oac-origin"
     viewer_protocol_policy = "redirect-to-https"
     compress               = true
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.security.id
 
     forwarded_values {
       query_string = false
