@@ -2,6 +2,7 @@
 #   pull request -> Checkov + terraform plan (read-only role)
 #   push to main -> Checkov + terraform apply (P1-scoped role)
 # Actions are pinned to full commit SHAs (P8 finding F-32).
+# Docs-only changes to Project 1 (*.md, diagrams, evidence) don't start the workflow.
 name: P1 Terraform
 
 on:
@@ -9,12 +10,18 @@ on:
     branches: [main]
     paths:
       - "project-1-static-site/**"
+      - "!project-1-static-site/**/*.md"
+      - "!project-1-static-site/diagrams/**"
+      - "!project-1-static-site/evidence/**"
       - "project-9-keyless-cicd/terraform/**"
       - ".github/workflows/p1-terraform.yml"
   push:
     branches: [main]
     paths:
       - "project-1-static-site/**"
+      - "!project-1-static-site/**/*.md"
+      - "!project-1-static-site/diagrams/**"
+      - "!project-1-static-site/evidence/**"
       - "project-9-keyless-cicd/terraform/**"
       - ".github/workflows/p1-terraform.yml"
   workflow_dispatch:
