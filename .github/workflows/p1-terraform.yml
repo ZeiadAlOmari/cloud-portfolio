@@ -1,0 +1,127 @@
+# Project 9: keyless CI/CD for Project 1 (GitHub OIDC -> AWS IAM roles), gated by Checkov.
+#   pull request -> Checkov + terraform plan (read-only role)
+#   push to main -> Checkov + terraform apply (P1-scoped role)
+# Actions are pinned to full commit SHAs (P8 finding F-32).
+name: P1 Terraform
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "project-1-static-site/**"
+      - "project-9-keyless-cicd/terraform/**"
+      - ".github/workflows/p1-terraform.yml"
+  push:
+    branches: [main]
+    paths:
+      - "project-1-static-site/**"
+      - "project-9-keyless-cicd/terraform/**"
+      - ".github/workflows/p1-terraform.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read # least privilege by default (P8 finding F-33)
+
+concurrency:
+  group: p1-terraform
+  cancel-in-progress: false # never cancel an apply half-way
+
+env:
+  TF_VERSION: "1.17.2"
+  CHECKOV_VERSION: "3.4.5"
+  AWS_REGION: us-east-1
+  WORKDIR: project-1-static-site/terraform
+
+jobs:
+  checkov:
+    name: Policy gate (Checkov)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Install Checkov
+        run: pip install --quiet "checkov==${CHECKOV_VERSION}"
+      # One run per directory: a single run with several -d flags was found to skip a directory.
+      - name: Scan P1 Terraform
+        run: checkov --framework terraform --compact -d project-1-static-site/terraform
+      - name: Scan P9 bootstrap Terraform
+        run: checkov --framework terraform --compact -d project-9-keyless-cicd/terraform
+
+  plan:
+    name: Terraform plan (read-only role)
+    if: github.event_name == 'pull_request'
+    needs: checkov
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # request the GitHub OIDC token
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ secrets.AWS_PLAN_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+          role-session-name: gha-p1-plan-${{ github.run_id }}
+          mask-aws-account-id: true
+      - uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+          terraform_wrapper: false
+      - name: Init
+        working-directory: ${{ env.WORKDIR }}
+        run: terraform init -input=false -no-color
+      - name: Plan
+        working-directory: ${{ env.WORKDIR }}
+        run: |
+          terraform plan -input=false -no-color -out=tfplan | tee plan.txt
+          {
+            echo "## Terraform plan for P1"
+            echo '```'
+            grep -E '^(Plan:|No changes)|will be (created|updated|destroyed)|must be replaced' plan.txt || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  apply:
+    name: Terraform apply (P1-scoped role)
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    needs: checkov
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ secrets.AWS_APPLY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+          role-session-name: gha-p1-apply-${{ github.run_id }}
+          mask-aws-account-id: true
+      - uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+          terraform_wrapper: false
+      - name: Init
+        working-directory: ${{ env.WORKDIR }}
+        run: terraform init -input=false -no-color
+      - name: Plan
+        working-directory: ${{ env.WORKDIR }}
+        run: terraform plan -input=false -no-color -out=tfplan | tee plan.txt
+      - name: Apply
+        working-directory: ${{ env.WORKDIR }}
+        run: |
+          terraform apply -input=false -no-color tfplan | tee apply.txt
+          {
+            echo "## Terraform apply for P1"
+            echo '```'
+            grep -E '^(Plan:|No changes|Apply complete)' plan.txt apply.txt || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -10,6 +10,12 @@ resource "random_string" "bucket_suffix" {
 # uses S3 static website hosting. CloudFront reads it through Origin Access
 # Control (OAC) over HTTPS; direct S3 access is denied.
 resource "aws_s3_bucket" "website" {
+  #checkov:skip=CKV_AWS_18:Server access logs need a second bucket and storage (P8 F-56, cost decision)
+  #checkov:skip=CKV_AWS_144:Cross-region replication shown in P7; doubles storage and transfer (cost decision)
+  #checkov:skip=CKV_AWS_145:SSE-S3 used; a customer-managed KMS key costs about USD 1/month (cost decision)
+  #checkov:skip=CKV2_AWS_62:No consumer for bucket event notifications on a static site (not applicable)
+  #checkov:skip=CKV_AWS_21:TEMPORARY - versioning added in the first P9 pull request (P8 F-57)
+  #checkov:skip=CKV2_AWS_61:TEMPORARY - lifecycle rule added in the first P9 pull request
   bucket = "portfolio-site-${random_string.bucket_suffix.result}"
 }
 

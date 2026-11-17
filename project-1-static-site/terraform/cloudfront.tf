@@ -13,6 +13,14 @@ resource "aws_cloudfront_origin_access_control" "website" {
 
 # CloudFront distribution
 resource "aws_cloudfront_distribution" "website" {
+  #checkov:skip=CKV_AWS_174:TLSv1.2 minimum needs a custom domain + ACM certificate (P8 F-55, cost decision)
+  #checkov:skip=CKV2_AWS_42:Custom SSL certificate needs a registered domain (P8 F-55, cost decision)
+  #checkov:skip=CKV_AWS_68:AWS WAF is billed per web ACL and rule (cost decision)
+  #checkov:skip=CKV2_AWS_47:Log4j WAF rule requires WAF (cost decision)
+  #checkov:skip=CKV_AWS_86:CloudFront access logs need log storage (P8 F-56, cost decision)
+  #checkov:skip=CKV_AWS_310:Origin failover demonstrated in P7; needs a second bucket (cost decision)
+  #checkov:skip=CKV_AWS_374:Public portfolio site intended for worldwide access (not applicable)
+  #checkov:skip=CKV2_AWS_32:TEMPORARY - security response headers policy added in the first P9 pull request
   enabled             = true
   default_root_object = "index.html"
   price_class         = "PriceClass_100" # North America and Europe only (cheapest)
