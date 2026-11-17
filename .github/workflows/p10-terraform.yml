@@ -1,0 +1,137 @@
+# Project 10: serverless v2 deployed through the Project 9 pattern.
+#   pull request -> unit tests + Checkov + terraform plan (read-only role)
+#   push to main -> unit tests + Checkov + terraform apply (P10 role; created roles must carry the p10 boundary)
+name: P10 Serverless v2
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "project-10-serverless-v2/**"
+      - ".github/workflows/p10-terraform.yml"
+  push:
+    branches: [main]
+    paths:
+      - "project-10-serverless-v2/**"
+      - ".github/workflows/p10-terraform.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: p10-terraform
+  cancel-in-progress: false
+
+env:
+  TF_VERSION: "1.17.2"
+  CHECKOV_VERSION: "3.4.5"
+  AWS_REGION: us-east-1
+  PROJECT_DIR: project-10-serverless-v2
+  WORKDIR: project-10-serverless-v2/terraform
+
+jobs:
+  tests:
+    name: Unit tests (moto)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: pip install --quiet -r "${PROJECT_DIR}/tests/requirements.txt"
+      - name: Run tests
+        run: python -m pytest -q "${PROJECT_DIR}/tests"
+
+  checkov:
+    name: Policy gate (Checkov)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Install Checkov
+        run: pip install --quiet "checkov==${CHECKOV_VERSION}"
+      - name: Scan P10 Terraform
+        run: checkov --framework terraform --compact -d "${WORKDIR}"
+
+  plan:
+    name: Terraform plan (read-only role)
+    if: github.event_name == 'pull_request'
+    needs: [tests, checkov]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ secrets.AWS_P10_PLAN_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+          role-session-name: gha-p10-plan-${{ github.run_id }}
+          mask-aws-account-id: true
+      - uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+          terraform_wrapper: false
+      - name: Init
+        working-directory: ${{ env.WORKDIR }}
+        run: terraform init -input=false -no-color
+      - name: Plan
+        working-directory: ${{ env.WORKDIR }}
+        run: |
+          terraform plan -input=false -no-color -out=tfplan | tee plan.txt
+          {
+            echo "## Terraform plan for P10"
+            echo '```'
+            grep -E '^(Plan:|No changes)|will be (created|updated|destroyed)|must be replaced' plan.txt || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  apply:
+    name: Terraform apply (P10 role)
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    needs: [tests, checkov]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ secrets.AWS_P10_APPLY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+          role-session-name: gha-p10-apply-${{ github.run_id }}
+          mask-aws-account-id: true
+      - uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+          terraform_wrapper: false
+      - name: Init
+        working-directory: ${{ env.WORKDIR }}
+        run: terraform init -input=false -no-color
+      - name: Plan
+        working-directory: ${{ env.WORKDIR }}
+        run: terraform plan -input=false -no-color -out=tfplan | tee plan.txt
+      - name: Apply
+        working-directory: ${{ env.WORKDIR }}
+        run: |
+          terraform apply -input=false -no-color tfplan | tee apply.txt
+          {
+            echo "## Terraform apply for P10"
+            echo '```'
+            grep -E '^(Plan:|No changes|Apply complete)' plan.txt apply.txt || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
