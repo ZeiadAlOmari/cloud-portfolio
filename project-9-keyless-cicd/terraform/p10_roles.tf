@@ -270,8 +270,8 @@ data "aws_iam_policy_document" "p10_write" {
     resources = ["${local.arn_logs}:log-group:*"]
   }
   statement {
-    sid       = "ManageHttpApis"
-    actions   = ["apigateway:POST", "apigateway:PATCH", "apigateway:PUT", "apigateway:DELETE"]
+    sid       = "ManageHttpApis" # TagResource/UntagResource are checked separately when stages are created with tags
+    actions   = ["apigateway:POST", "apigateway:PATCH", "apigateway:PUT", "apigateway:DELETE", "apigateway:TagResource", "apigateway:UntagResource"]
     resources = ["arn:aws:apigateway:${local.region}::/apis", "arn:aws:apigateway:${local.region}::/apis/*", "arn:aws:apigateway:${local.region}::/tags/*"]
   }
   statement {
