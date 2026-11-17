@@ -19,9 +19,9 @@ Well-Architected Tool answer notes. Evidence numbers refer to files in [`../evid
 
 | Status | High | Medium | Low | — | Total |
 |---|---|---|---|---|---|
-| Remediated | 3 | 4 | 6 | · | **13** |
-| Cost decision | 3 | 3 | 4 | · | **10** |
-| Design finding | 6 | 14 | 5 | · | **25** |
+| Remediated | 4 | 4 | 8 | · | **16** |
+| Cost decision | 3 | 3 | 3 | · | **9** |
+| Design finding | 5 | 14 | 4 | · | **23** |
 | Lesson | · | 2 | · | · | **2** |
 | Open | · | · | 1 | · | **1** |
 | Closed | · | 1 | 1 | 4 | **6** |
@@ -33,15 +33,18 @@ Well-Architected Tool answer notes. Evidence numbers refer to files in [`../evid
 | ID | Scope | Pillar | WA question | Risk | Status | Finding | Evidence |
 |---|---|---|---|---|---|---|---|
 | F-02 | Account | SEC | `identities` | 🔴 High | Remediated | Admin IAM user (AdministratorAccess) used via a 68-day-old long-lived access key | 00, 01, 30, 31, 32 |
-| F-04 | P1 | SEC | `protect-data-rest` | 🔴 High | Remediated | Site bucket publicly readable - Block Public Access off, `Principal: *` policy, no OAC | 15, 16, 18, 19 |
+| F-04 | P1 | SEC | `protect-data-rest` | 🔴 High | Remediated | Site bucket publicly readable - Block Public Access off, `Principal: *` policy, no OAC | 15, 16, 18, 19, P9 |
+| F-23 | P3 | SEC | `application-security` | 🔴 High | Remediated | Pipeline design uses static AWS keys and an SSH private key in GitHub Secrets; no OIDC | 03, P3 workflow, P9 |
 | F-36 | P4 | OPS, COST | `decomissioning-resources` | 🔴 High | Remediated | Project 4 never destroyed - 21 resources live ~8 weeks | 04, 05, 06, 07, 08, 09 |
 | F-03 | Account | SEC | `identities` | 🟠 Medium | Remediated | No IAM password policy (P6 teardown regression) | 02, 20 |
 | F-05 | P1 | SEC | `protect-data-transit` | 🟠 Medium | Remediated | CloudFront-to-S3 hop over HTTP (website endpoint is http-only) | 15, 19 |
 | F-35 | Account | SEC | `permissions` | 🟠 Medium | Remediated | No IAM Access Analyzer (P6 teardown regression) | 02, 21 |
 | F-40 | P4 | OPS, COST | `decomissioning-resources` | 🟠 Medium | Remediated | Lambda log groups not Terraform-managed (never-expire retention) and orphaned by destroy | 09, 10 |
+| F-33 | P3 | SEC | `application-security` | 🟡 Low | Remediated | No `permissions:` block, so GITHUB_TOKEN gets default scopes | P3 workflow, P9 |
 | F-37 | P4 | OPS, COST | `decomissioning-resources` | 🟡 Low | Remediated | Retired SAM version left its `aws-sam-cli-managed-default` bootstrap stack | 06, 11, 12, 13 |
 | F-52 | P4 | COST, SUS | `decomissioning-resources` | 🟡 Low | Remediated | Versioned SAM bucket kept 8 noncurrent versions behind delete markers | 11 |
 | F-54 | P1 | COST | `data-transfer` | 🟡 Low | Remediated | Direct bucket reads bypassed CloudFront caching and free tier | 18, 19 |
+| F-57 | P1 | REL | `backing-up-data` | 🟡 Low | Remediated | Bucket versioning not enabled | 15, P9 |
 | F-58 | P1 | PERF | `networking` | 🟡 Low | Remediated | HTTP/2 only | 19 |
 | F-60 | Repo | SEC, OPS | `dev-integ` | 🟡 Low | Remediated | `*tfplan*` not ignored; stray empty `terraform.tfstate` at repo root | 06, 17, 34 |
 | F-63 | Account | COST | `cloud-financial-management` | 🟡 Low | Remediated | Budget threshold too loose for a zero-spend account | 22, 28 |
@@ -54,10 +57,8 @@ Well-Architected Tool answer notes. Evidence numbers refer to files in [`../evid
 | F-49 | P4 | REL | `backing-up-data` | 🟡 Low | Cost decision | DynamoDB PITR off (paid); deletion protection off (free) | 08 |
 | F-55 | P1 | SEC | `protect-data-transit` | 🟡 Low | Cost decision | Minimum viewer TLS is TLSv1 on the default *.cloudfront.net certificate | 15 |
 | F-56 | P1 | OPS | `workload-observability` | 🟡 Low | Cost decision | CloudFront access logging off | 15 |
-| F-57 | P1 | REL | `backing-up-data` | 🟡 Low | Cost decision | Bucket versioning not enabled | 15 |
 | F-12 | P2 | SEC | `network-protection` | 🔴 High | Design finding | SSH (22) open to 0.0.0.0/0 on the web tier | P2 docs |
 | F-13 | P2 | SEC | `identities` | 🔴 High | Design finding | DB credentials hardcoded on EC2 and exposed through `outputs.tf` / state | P2 docs |
-| F-23 | P3 | SEC | `application-security` | 🔴 High | Design finding | Pipeline design uses static AWS keys and an SSH private key in GitHub Secrets; no OIDC | 03, P3 workflow |
 | F-29 | P3 | SEC | `network-protection` | 🔴 High | Design finding | SSH deploy from GitHub-hosted runners implies port 22 open to the internet | P3 workflow |
 | F-42 | P4 | SEC | `application-security` | 🔴 High | Design finding | All four HTTP API routes `authorization_type: NONE` - POST /ingest writable by anyone | 08 |
 | F-43 | P4 | REL, SEC, COST | `mitigate-interaction-failure` | 🔴 High | Design finding | No stage throttling (0/0) - denial-of-wallet exposure combined with F-42 | 08 |
@@ -69,13 +70,12 @@ Well-Architected Tool answer notes. Evidence numbers refer to files in [`../evid
 | F-16 | P2 | OPS, SEC | `dev-integ` | 🟠 Medium | Design finding | Built on Amazon Linux 2, which reached end of support on 2026-06-30 | P2 docs |
 | F-30 | P3 | OPS, REL | `dev-integ` | 🟠 Medium | Design finding | Tested artifact is not the deployed artifact | P3 workflow |
 | F-31 | P3 | REL | `mit-deploy-risks` | 🟠 Medium | Design finding | Stop/remove/run causes downtime on every deploy; no rollback image | P3 workflow |
-| F-32 | P3 | SEC | `protect-compute` | 🟠 Medium | Design finding | No image vulnerability scan; third-party action pinned by tag, not commit SHA | P3 workflow |
+| F-32 | P3 | SEC | `protect-compute` | 🟠 Medium | Design finding | No image vulnerability scan; third-party action pinned by tag, not commit SHA | P3 workflow, P9 |
 | F-38 | P4 | SEC | `permissions` | 🟠 Medium | Design finding | One IAM role shared by all three functions; `logs` on `arn:aws:logs:*:*:*` | 08 |
 | F-39 | P4 | OPS, REL | `monitor-aws-resources` | 🟠 Medium | Design finding | No CloudWatch alarms, not even DLQ depth | 07, 08 |
 | F-44 | P4 | REL | `prevent-interaction-failure` | 🟠 Medium | Design finding | SQS visibility timeout (60s) equals process timeout (60s) | 08 |
 | F-45 | P4 | REL | `mitigate-interaction-failure` | 🟠 Medium | Design finding | No `ReportBatchItemFailures` - one bad message retries the whole batch of 10 | 08 |
 | F-47 | P4 | OPS | `observability` | 🟠 Medium | Design finding | No API access logs, detailed metrics or X-Ray tracing (PassThrough) | 08 |
-| F-33 | P3 | SEC | `application-security` | 🟡 Low | Design finding | No `permissions:` block, so GITHUB_TOKEN gets default scopes | P3 workflow |
 | F-46 | P4 | REL | `mitigate-interaction-failure` | 🟡 Low | Design finding | DLQ retention (4 days) equals source queue retention | 08 |
 | F-48 | P4 | PERF, COST | `data-management` | 🟡 Low | Design finding | /stats uses DynamoDB Scan - cost and latency grow with table size | 08 |
 | F-50 | P4 | COST, SUS | `sus_hardware` | 🟡 Low | Design finding | x86_64 Lambdas | 08 |
@@ -118,7 +118,7 @@ Policy set: 14+ characters, all four character classes, 24-password reuse preven
 
 **F-04 — Site bucket publicly readable - Block Public Access off, `Principal: *` policy, no OAC**  
 P1 · Security · High · Remediated  
-Direct S3 returned 200 before. Now: S3 REST origin with Origin Access Control, policy scoped to the distribution ARN plus DenyInsecureTransport, all four BPA flags on. After: website endpoint 404, direct object 403, CloudFront 200, policy IsPublic=False.
+Direct S3 returned 200 before. Now: S3 REST origin with Origin Access Control, policy scoped to the distribution ARN plus DenyInsecureTransport, all four BPA flags on. After: website endpoint 404, direct object 403, CloudFront 200, policy IsPublic=False. Since Project 9, a Checkov gate blocks this class of change before it reaches AWS (tested with a pull request that turned Block Public Access off).
 
 **F-05 — CloudFront-to-S3 hop over HTTP (website endpoint is http-only)**  
 P1 · Security · Medium · Remediated  
@@ -187,8 +187,8 @@ P2 · Cost Optimization · n/a · Strength
 P2 · Operational Excellence · n/a · Strength
 
 **F-23 — Pipeline design uses static AWS keys and an SSH private key in GitHub Secrets; no OIDC**  
-P3 · Security · High · Design finding  
-Current exposure none: the repo has no Actions secrets (verified). Free fix: GitHub OIDC + scoped IAM role.
+P3 · Security · High · Remediated  
+Fixed in Project 9: the repository's live pipeline signs in through GitHub OIDC with a read-only role for pull requests and a P1-scoped role for main; no AWS keys in GitHub. P3's workflow file is kept as a historical design and never runs (not at the repo root).
 
 **F-24 — Single EC2 deploy target**  
 P3 · Reliability · n/a · Closed  
@@ -222,10 +222,11 @@ P3 · Reliability · Medium · Design finding
 
 **F-32 — No image vulnerability scan; third-party action pinned by tag, not commit SHA**  
 P3 · Security · Medium · Design finding  
-Trivy in Actions is free.
+Project 9 pins every action to a commit SHA; container image scanning (Trivy, free) remains open for P3's design.
 
 **F-33 — No `permissions:` block, so GITHUB_TOKEN gets default scopes**  
-P3 · Security · Low · Design finding
+P3 · Security · Low · Remediated  
+Fixed in Project 9: `contents: read` by default, `id-token: write` only on the plan and apply jobs.
 
 **F-34 — Suspected failing pipeline: workflow triggers on push but its secrets are gone**  
 P3 · Operational Excellence · n/a · Closed  
@@ -313,8 +314,8 @@ P1 · Operational Excellence · Low · Cost decision
 Log storage is not free at zero spend.
 
 **F-57 — Bucket versioning not enabled**  
-P1 · Reliability · Low · Cost decision  
-Accepted: site content is in Git and redeployed by Terraform.
+P1 · Reliability · Low · Remediated  
+Fixed in Project 9 (first pull request through the pipeline): versioning enabled with a 30-day lifecycle rule for old versions.
 
 **F-58 — HTTP/2 only**  
 P1 · Performance Efficiency · Low · Remediated  

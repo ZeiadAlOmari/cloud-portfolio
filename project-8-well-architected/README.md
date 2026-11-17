@@ -16,7 +16,7 @@ The review had two kinds of evidence:
 **Headline results**
 
 - **69 findings** in one register ([`findings/findings-register.md`](findings/findings-register.md)): 12 High, 24 Medium, 17 Low, 16 strengths or closed items.
-- **13 remediated and verified**, including 3 of the 12 Highs. Every fix was free.
+- **16 remediated and verified**, including 4 of the 12 Highs. Every fix was free. Three of them (F-23, F-33, F-57) were fixed by the follow-up [Project 9](../project-9-keyless-cicd/).
 - **The live review found a forgotten workload.** Project 4 had never been destroyed and ran for about 8 weeks, with an unauthenticated, unthrottled public API (F-36, F-42, F-43). It was found through an IAM role's "last used" timestamp, captured as evidence, destroyed and verified.
 - **Tearing down Project 6 brought back the security gaps it had fixed.** The account-level controls (trail, password policy, Access Analyzer) were in the project stack, so tearing it down deleted them. That's the central lesson: **account baseline controls need a lifecycle separate from projects.**
 - The October bill was **USD 0.00**. Every paid alternative is recorded as an explicit cost decision.
@@ -132,6 +132,8 @@ reviewed as built and then destroyed rather than redesigned.
 | F-63 Budget | First alert at USD 4 | Added ACTUAL > USD 0.01 alert | 22, 28 |
 | F-02 Admin access key | `AKIA` key, 68 days old, used for all CLI work | CLI and Terraform on `ASIA` temporary credentials via `aws login`; key deactivated, then deleted 2026-11-01; old profile `InvalidClientTokenId` | 30–32 |
 | F-60 Repo hygiene | `*tfplan*` not ignored; stray empty root state file | Ignored; removed | 17, 34 |
+| F-23 / F-33 CI credentials (P9) | P3 design: static AWS keys + SSH key in GitHub, default token scopes | GitHub OIDC; read-only role for pull requests, P1-scoped role for `main`; `contents: read` by default | [P9](../project-9-keyless-cicd/) |
+| F-57 P1 versioning (P9) | Versioning off | Enabled with a 30-day lifecycle rule, shipped through the P9 pipeline | [P9](../project-9-keyless-cicd/) |
 
 ### Leftover sweep (after cleanup)
 

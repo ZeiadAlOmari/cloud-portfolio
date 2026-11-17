@@ -4,10 +4,15 @@ Findings tagged **Reliability** (primary or secondary). Full register: [`../find
 
 | Status | Count |
 |---|---|
-| Cost decision | 5 |
+| Remediated | 1 |
+| Cost decision | 4 |
 | Design finding | 10 |
 | Closed | 1 |
 | Strength | 1 |
+
+## Remediated
+
+- **F-57** (P1, 🟡 Low, `backing-up-data`) — Bucket versioning not enabled. Fixed in Project 9 (first pull request through the pipeline): versioning enabled with a 30-day lifecycle rule for old versions. _Evidence: 15, P9_
 
 ## Cost decision
 
@@ -15,7 +20,6 @@ Findings tagged **Reliability** (primary or secondary). Full register: [`../find
 - **F-17** (P2, 🔴 High, `fault-isolation`) — Single AZ: single web and app instances, no ALB/ASG, Single-AZ RDS. ALB ~USD 16/month, Multi-AZ doubles RDS cost. _Evidence: P2 docs_
 - **F-18** (P2, 🟠 Medium, `withstand-component-failures`) — NAT instance is a single point of failure with no auto-recovery. NAT Gateway ~USD 32/month. _Evidence: P2 docs_
 - **F-49** (P4, 🟡 Low, `backing-up-data`) — DynamoDB PITR off (paid); deletion protection off (free) _Evidence: 08_
-- **F-57** (P1, 🟡 Low, `backing-up-data`) — Bucket versioning not enabled. Accepted: site content is in Git and redeployed by Terraform. _Evidence: 15_
 
 ## Design finding
 
