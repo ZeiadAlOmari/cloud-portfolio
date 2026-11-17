@@ -1,0 +1,15 @@
+== STATE BUCKET
+True	True	True	True
+Enabled
+AES256
+expire-old-state-versions	30
+False
+== OIDC PROVIDER
+token.actions.githubusercontent.com
+== ROLE TRUST (sub conditions)
+gha-p1-plan: repo:ZeiadAlOmari/cloud-portfolio:pull_request
+gha-p1-apply: repo:ZeiadAlOmari/cloud-portfolio:ref:refs/heads/main
+== ACCESS ANALYZER (expect no findings)
+AWS::IAM::Role	arn:aws:iam::<ACCOUNT_ID>:role/gha-p1-plan
+AWS::IAM::Role	arn:aws:iam::<ACCOUNT_ID>:role/gha-p1-apply
+(end)

@@ -1,0 +1,8 @@
+== LATEST WEB-IDENTITY SIGN-INS
+2026-11-17T01:26:57Z | SUCCESS | gha-p1-apply | gha-p1-apply-43995561393
+2026-11-17T01:20:00Z | AccessDenied | - | -
+2026-11-17T01:19:41Z | AccessDenied | - | -
+2026-11-17T01:19:24Z | AccessDenied | - | -
+2026-11-17T01:19:16Z | AccessDenied | - | -
+== STATE BUCKET OBJECTS (expect only the state, no .tflock)
+p1/terraform.tfstate	2026-11-17T01:27:14+00:00

@@ -1,0 +1,12 @@
+== LIVE SECURITY HEADERS
+x-xss-protection: 1; mode=block
+x-frame-options: DENY
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+== VERSIONING
+Enabled
+== LIFECYCLE
+expire-old-site-versions	30
+== SITE STILL UP
+200

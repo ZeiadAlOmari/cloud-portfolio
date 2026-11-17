@@ -1,0 +1,3 @@
+== S3 OBJECTS
+p1/terraform.tfstate	15292
+== RESOURCES: S3 state=8  old local=0 (old local includes the data source; expect equal)

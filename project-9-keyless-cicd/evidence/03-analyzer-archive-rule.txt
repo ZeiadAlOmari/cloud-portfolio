@@ -1,0 +1,4 @@
+== ACTIVE (expect none)
+(end)
+== ARCHIVED
+arn:aws:iam::<ACCOUNT_ID>:role/gha-p1-plan	arn:aws:iam::<ACCOUNT_ID>:role/gha-p1-apply

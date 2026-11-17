@@ -1,0 +1,7 @@
+== WEB-IDENTITY SIGN-INS (newest first)
+2026-11-17T01:33:43Z | SUCCESS | gha-p1-plan | pull_request
+2026-11-17T01:26:57Z | SUCCESS | gha-p1-apply | refs/heads/main
+2026-11-17T01:20:00Z | AccessDenied | - | refs/heads/main
+== P1 STILL UNCHANGED (expect: versioning empty, no lifecycle)
+None
+aws: [ERROR]: An error occurred (NoSuchLifecycleConfiguration) when calling the GetBucketL

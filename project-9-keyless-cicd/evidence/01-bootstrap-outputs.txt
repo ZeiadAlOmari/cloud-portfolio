@@ -1,0 +1,3 @@
+apply_role_arn = "arn:aws:iam::<ACCOUNT_ID>:role/gha-p1-apply"
+plan_role_arn = "arn:aws:iam::<ACCOUNT_ID>:role/gha-p1-plan"
+state_bucket = "cloud-portfolio-tfstate-gt35g4p1"
