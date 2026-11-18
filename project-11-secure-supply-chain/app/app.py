@@ -1,27 +1,32 @@
+"""Project 11: Project 3's demo app, served by gunicorn from a signed, digest-pinned image."""
+import os
+from datetime import datetime, timezone
+
 from flask import Flask, jsonify
-from datetime import datetime
 
 app = Flask(__name__)
+
+VERSION = "2.0.0"
+
 
 @app.route("/")
 def home():
     return jsonify({
         "status": "running",
-        "message": "CI/CD Pipeline Demo",
-        "version": "1.0.0",
-        "deployed_at": datetime.now().isoformat(),
+        "message": "Secure supply chain demo",
+        "version": VERSION,
+        # Set at deploy time from the signed digest, so a caller can check what's running.
+        "image_digest": os.environ.get("IMAGE_DIGEST", "unknown"),
+        "served_at": datetime.now(timezone.utc).isoformat(),
         "features": [
-            "Docker containerized",
-            "GitHub Actions CI/CD",
-            "Automated testing",
-            "Deployed to EC2"
-        ]
+            "Built once, tested, scanned and signed in CI",
+            "Deployed by digest, signature checked first",
+            "No SSH: deployed through SSM",
+            "Non-root container",
+        ],
     })
+
 
 @app.route("/health")
 def health():
     return jsonify({"status": "healthy"})
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
-    
