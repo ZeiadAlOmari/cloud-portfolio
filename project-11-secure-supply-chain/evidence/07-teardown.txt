@@ -1,0 +1,18 @@
+aws_ssm_document.deploy: Destroying... [id=p11-deploy]
+aws_iam_role_policy_attachment.ssm_core: Destroying... [id=p11-instance-role-20261118162025836700000001]
+aws_instance.app: Destroying... [id=i-010619db0631b005f]
+aws_iam_role_policy_attachment.ssm_core: Destruction complete after 2s
+aws_ssm_document.deploy: Destruction complete after 2s
+aws_instance.app: Still destroying... [id=i-010619db0631b005f, 00m10s elapsed]
+aws_instance.app: Still destroying... [id=i-010619db0631b005f, 00m20s elapsed]
+aws_instance.app: Still destroying... [id=i-010619db0631b005f, 00m30s elapsed]
+aws_instance.app: Destruction complete after 33s
+aws_iam_instance_profile.instance: Destroying... [id=p11-instance-profile]
+aws_security_group.web: Destroying... [id=sg-05d0cc162c1b648fe]
+aws_iam_instance_profile.instance: Destruction complete after 1s
+aws_iam_role.instance: Destroying... [id=p11-instance-role]
+aws_iam_role.instance: Destruction complete after 0s
+aws_security_group.web: Destruction complete after 2s
+
+Apply complete! Resources: 0 added, 0 changed, 6 destroyed.
+teardown finished 2026-11-18T21:20:29Z

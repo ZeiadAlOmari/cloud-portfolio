@@ -17,7 +17,8 @@ down after testing, and the teardown checked with the AWS CLI. Project 1 is the 
 | 08 | [Well-Architected review](project-08-well-architected/) | Six-pillar review of Projects 1–7: 69 findings, recorded in the AWS Well-Architected Tool | Review |
 | 09 | [Keyless CI/CD](project-09-keyless-cicd/) | GitHub OIDC (no stored AWS keys), Checkov policy gate, plan/apply role split | 🟢 Running for Project 1 |
 | 10 | [Serverless pipeline v2](project-10-serverless-v2/) | Project 4 rebuilt to fix the review's findings; IAM auth, idempotency, DLQ alarm, deploy switch | Torn down |
+| 11 | [Secure supply chain](project-11-secure-supply-chain/) | Project 3's pipeline rebuilt: build once, Trivy gate, SBOM, keyless cosign signature, deploy by digest through SSM with no SSH | Torn down (signed images public) |
 
 **How the later projects connect:** Project 8 reviewed Projects 1–7 against the AWS Well-Architected Framework.
-Projects 9 and 10 fix what it found, and its [findings register](project-08-well-architected/findings/findings-register.md)
+Projects 9, 10 and 11 fix what it found, and its [findings register](project-08-well-architected/findings/findings-register.md)
 tracks which findings are fixed and by which project.

@@ -1,0 +1,14 @@
+== independent teardown check 2026-11-18T21:21:31Z
+Instance i-010619db0631b005f: terminated
+Non-terminated P11 instances: 0
+EBS volumes of that instance: 0
+P11-tagged volumes: 0
+Network interfaces of p11-web: 0
+Security group p11-web: 0
+IAM role p11-instance-role: 0
+Instance profile p11-instance-profile: 0
+SSM document p11-deploy: 0
+SSM managed instances online: 0
+Kept (P9 bootstrap): gha-p11-deploy
+== Free plan credits left
+194.3

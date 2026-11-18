@@ -4,9 +4,9 @@ Findings tagged **Operational Excellence** (primary or secondary). Full register
 
 | Status | Count |
 |---|---|
-| Remediated | 6 |
+| Remediated | 7 |
 | Cost decision | 2 |
-| Design finding | 2 |
+| Design finding | 1 |
 | Lesson | 1 |
 | Open | 1 |
 | Closed | 1 |
@@ -15,6 +15,7 @@ Findings tagged **Operational Excellence** (primary or secondary). Full register
 ## Remediated
 
 - **F-36** (P4, 🔴 High, `decomissioning-resources`) — Project 4 never destroyed - 21 resources live ~8 weeks. Lambda SQS event-source mapping polled 24/7 under `serverless-lambda-role` (found via the role's last-used date). Snapshot captured with `terraform show -json`, then `terraform destroy`, verified per service. Project 10 makes this a control rather than a habit: its rebuild was destroyed and checked service by service, and its pipeline can only deploy while the `P10_DEPLOY_ENABLED` switch is on. _Evidence: 04, 05, 06, 07, 08, 09, P10_
+- **F-30** (P3, 🟠 Medium, `dev-integ`) — Tested artifact is not the deployed artifact. CI builds and tests an image, discards it; the server rebuilds from `git pull`. Fixed in Project 11 (verified live, then torn down): built once; the tested image ID equals the published digest, and the instance runs that digest (same value in SSM, Docker and the app's own response). _Evidence: P3 workflow, P11_
 - **F-39** (P4, 🟠 Medium, `monitor-aws-resources`) — No CloudWatch alarms, not even DLQ depth. Fixed in Project 10 (rebuilt, verified live, then torn down): DLQ-depth alarm and an error alarm per function to an SNS e-mail topic; a poison message triggered the DLQ alarm and the e-mail. _Evidence: 07, 08, P10_
 - **F-40** (P4, 🟠 Medium, `decomissioning-resources`) — Lambda log groups not Terraform-managed (never-expire retention) and orphaned by destroy. Deleted and verified. Code fix applied in Project 10: `aws_cloudwatch_log_group` per function with 14-day retention, removed by destroy (0 left). _Evidence: 09, 10, P10_
 - **F-47** (P4, 🟠 Medium, `observability`) — No API access logs, detailed metrics or X-Ray tracing (PassThrough). Fixed in Project 10 (rebuilt, verified live, then torn down): JSON access logs with caller identity and X-Ray active on every function (HTTP APIs themselves can't be traced). _Evidence: 08, P10_
@@ -29,7 +30,6 @@ Findings tagged **Operational Excellence** (primary or secondary). Full register
 ## Design finding
 
 - **F-16** (P2, 🟠 Medium, `dev-integ`) — Built on Amazon Linux 2, which reached end of support on 2026-06-30. Redeploy target: AL2023. _Evidence: P2 docs_
-- **F-30** (P3, 🟠 Medium, `dev-integ`) — Tested artifact is not the deployed artifact. CI builds and tests an image, discards it; the server rebuilds from `git pull`. _Evidence: P3 workflow_
 
 ## Lesson
 

@@ -1,0 +1,40 @@
+== last SSM deploy command 2026-11-18T20:38:28Z
+------------------------------------------------------------------------------------------
+|                                      ListCommands                                      |
++-----------+----------------------------------------------------------------------------+
+|  Comment  |  P11 run 44392010715                                                       |
+|  Digest   |  sha256:07557ee31fa182472ac92c9a2621e9f4858616cca116da6b80338ee0d6b77ea2   |
+|  Document |  p11-deploy                                                                |
+|  Requested|  2026-11-18T23:33:52.759000+03:00                                          |
+|  Status   |  Success                                                                   |
++-----------+----------------------------------------------------------------------------+
+-- instance output:
+Status: Downloaded newer image for ghcr.io/zeiadalomari/cloud-portfolio/p11-app@sha256:07557ee31fa182472ac92c9a2621e9f4858616cca116da6b80338ee0d6b77ea2
+ghcr.io/zeiadalomari/cloud-portfolio/p11-app@sha256:07557ee31fa182472ac92c9a2621e9f4858616cca116da6b80338ee0d6b77ea2
+4f3f6c0b992bb08b0ba47abd66c7114241724b8dae362e9e5714b0a7279256b7
+{"status":"healthy"}
+CONTAINER ID                                                       IMAGE                                                                                                                  COMMAND                                                                 CREATED        STATUS                           PORTS                                   NAMES
+4f3f6c0b992bb08b0ba47abd66c7114241724b8dae362e9e5714b0a7279256b7   ghcr.io/zeiadalomari/cloud-portfolio/p11-app@sha256:07557ee31fa182472ac92c9a2621e9f4858616cca116da6b80338ee0d6b77ea2   "gunicorn --bind <IP>:8000 --workers 2 --access-logfile - app:app"   1 second ago   Up 1 second (health: starting)   <IP>:80->8000/tcp, :::80->8000/tcp   p11-app
+"image_digest":"sha256:07557ee31fa182472ac92c9a2621e9f4858616cca116da6b80338ee0d6b77ea2"
+
+== live app
+{
+    "features": [
+        "Built once, tested, scanned and signed in CI",
+        "Deployed by digest, signature checked first",
+        "No SSH: deployed through SSM",
+        "Non-root container"
+    ],
+    "image_digest": "sha256:07557ee31fa182472ac92c9a2621e9f4858616cca116da6b80338ee0d6b77ea2",
+    "message": "Secure supply chain demo",
+    "served_at": "2026-11-18T20:39:30.028436+00:00",
+    "status": "running",
+    "version": "2.0.0"
+}
+== signature of the running digest, checked from this laptop
+  PASS  manifest readable without credentials (HTTP 200)
+  PASS  signature verified for https://github.com/ZeiadAlOmari/cloud-portfolio/.github/workflows/p11-supply-chain.yml@refs/heads/main
+  PASS  rejected .github/workflows/p1-terraform.yml@refs/heads/main
+  PASS  rejected .github/workflows/p11-supply-chain.yml@refs/heads/attacker-branch
+  PASS  SBOM attestation verified
+== result: ALL CHECKS PASSED

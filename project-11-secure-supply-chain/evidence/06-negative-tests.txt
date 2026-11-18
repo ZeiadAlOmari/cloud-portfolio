@@ -1,0 +1,17 @@
+== running before tests: sha256:07557ee31fa182472ac92c9a2621e9f4858616cca116da6b80338ee0d6b77ea2
+== 1. unsigned digest from the same repository
+        using artifact sha256-c6947d49c79b113f0042e99d796af3b82d8e9870df7e33a549d1d62c10195abb -> sha256:600d99d30ca0a4aa588916be656783fe35322ff198c813f4c3229d1f7f816582 (exists in the trusted repo, never signed)
+        SSM status: Failed; instance said: REFUSED - no valid signature from the P11 workflow on main for sha256:600d99d30ca0a4aa588916be656783fe35322ff198c813f4c3229d1f7f816582 
+  PASS  instance refused the unsigned digest
+  PASS  app untouched, still running sha256:07557ee31fa182472ac92c9a2621e9f4858616cca116da6b80338ee0d6b77ea2
+== 2. malformed and injected digests
+  PASS  rejected 'latest' before running: (InvalidParameters)
+  PASS  rejected 'sha256:abc' before running: (InvalidParameters)
+  PASS  rejected 'sha256:$(reboot)' before running: (InvalidParameters)
+  PASS  rejected 'sha256:07557ee31fa182472ac92c9a2621e9f4858616cca116da6b80338ee0d6b77ea2; reboot' before running: (InvalidParameters)
+== 3. what the CI role is allowed to do (IAM policy simulator)
+  PASS  run document p11-deploy: allowed
+  PASS  run AWS-RunShellScript (a full shell): implicitDeny
+  PASS  target an instance tagged Project=p11-secure-supply-chain: allowed
+  PASS  target an instance tagged for another project: implicitDeny
+== result: ALL NEGATIVE TESTS PASSED

@@ -19,9 +19,9 @@ Well-Architected Tool answer notes. Evidence numbers refer to files in [`../evid
 
 | Status | High | Medium | Low | — | Total |
 |---|---|---|---|---|---|
-| Remediated | 6 | 9 | 12 | · | **27** |
+| Remediated | 7 | 11 | 12 | · | **30** |
 | Cost decision | 3 | 3 | 3 | · | **9** |
-| Design finding | 3 | 9 | · | · | **12** |
+| Design finding | 2 | 7 | · | · | **9** |
 | Lesson | · | 2 | · | · | **2** |
 | Open | · | · | 1 | · | **1** |
 | Closed | · | 1 | 1 | 4 | **6** |
@@ -35,11 +35,14 @@ Well-Architected Tool answer notes. Evidence numbers refer to files in [`../evid
 | F-02 | Account | SEC | `identities` | 🔴 High | Remediated | Admin IAM user (AdministratorAccess) used via a 68-day-old long-lived access key | 00, 01, 30, 31, 32 |
 | F-04 | P1 | SEC | `protect-data-rest` | 🔴 High | Remediated | Site bucket publicly readable - Block Public Access off, `Principal: *` policy, no OAC | 15, 16, 18, 19, P9 |
 | F-23 | P3 | SEC | `application-security` | 🔴 High | Remediated | Pipeline design uses static AWS keys and an SSH private key in GitHub Secrets; no OIDC | 03, P3 workflow, P9 |
+| F-29 | P3 | SEC | `network-protection` | 🔴 High | Remediated | SSH deploy from GitHub-hosted runners implies port 22 open to the internet | P3 workflow, P11 |
 | F-36 | P4 | OPS, COST | `decomissioning-resources` | 🔴 High | Remediated | Project 4 never destroyed - 21 resources live ~8 weeks | 04, 05, 06, 07, 08, 09, P10 |
 | F-42 | P4 | SEC | `application-security` | 🔴 High | Remediated | All four HTTP API routes `authorization_type: NONE` - POST /ingest writable by anyone | 08, P10 |
 | F-43 | P4 | REL, SEC, COST | `mitigate-interaction-failure` | 🔴 High | Remediated | No stage throttling (0/0) - denial-of-wallet exposure combined with F-42 | 08, P10 |
 | F-03 | Account | SEC | `identities` | 🟠 Medium | Remediated | No IAM password policy (P6 teardown regression) | 02, 20 |
 | F-05 | P1 | SEC | `protect-data-transit` | 🟠 Medium | Remediated | CloudFront-to-S3 hop over HTTP (website endpoint is http-only) | 15, 19 |
+| F-30 | P3 | OPS, REL | `dev-integ` | 🟠 Medium | Remediated | Tested artifact is not the deployed artifact | P3 workflow, P11 |
+| F-32 | P3 | SEC | `protect-compute` | 🟠 Medium | Remediated | No image vulnerability scan; third-party action pinned by tag, not commit SHA | P3 workflow, P9, P11 |
 | F-35 | Account | SEC | `permissions` | 🟠 Medium | Remediated | No IAM Access Analyzer (P6 teardown regression) | 02, 21 |
 | F-38 | P4 | SEC | `permissions` | 🟠 Medium | Remediated | One IAM role shared by all three functions; `logs` on `arn:aws:logs:*:*:*` | 08, P10 |
 | F-39 | P4 | OPS, REL | `monitor-aws-resources` | 🟠 Medium | Remediated | No CloudWatch alarms, not even DLQ depth | 07, 08, P10 |
@@ -70,16 +73,13 @@ Well-Architected Tool answer notes. Evidence numbers refer to files in [`../evid
 | F-56 | P1 | OPS | `workload-observability` | 🟡 Low | Cost decision | CloudFront access logging off | 15 |
 | F-12 | P2 | SEC | `network-protection` | 🔴 High | Design finding | SSH (22) open to 0.0.0.0/0 on the web tier | P2 docs |
 | F-13 | P2 | SEC | `identities` | 🔴 High | Design finding | DB credentials hardcoded on EC2 and exposed through `outputs.tf` / state | P2 docs |
-| F-29 | P3 | SEC | `network-protection` | 🔴 High | Design finding | SSH deploy from GitHub-hosted runners implies port 22 open to the internet | P3 workflow |
 | F-07 | P5 | SEC | `network-protection` | 🟠 Medium | Design finding | NodePort 30080 exposed directly; no ingress or TLS | P5 docs |
 | F-08 | P7 | REL | `planning-for-recovery` | 🟠 Medium | Design finding | RPO based on a single 26s replication sample; S3 RTC (paid) not used | P7 docs |
 | F-09 | P7 | REL | `planning-for-recovery` | 🟠 Medium | Design finding | One-way replication - failback is manual and has no runbook | P7 docs |
 | F-14 | P2 | SEC | `protect-data-rest` | 🟠 Medium | Design finding | RDS not encrypted at rest; TLS not enforced | P2 docs |
 | F-15 | P2 | SEC | `protect-data-transit` | 🟠 Medium | Design finding | Web tier serves HTTP only | P2 docs |
 | F-16 | P2 | OPS, SEC | `dev-integ` | 🟠 Medium | Design finding | Built on Amazon Linux 2, which reached end of support on 2026-06-30 | P2 docs |
-| F-30 | P3 | OPS, REL | `dev-integ` | 🟠 Medium | Design finding | Tested artifact is not the deployed artifact | P3 workflow |
-| F-31 | P3 | REL | `mit-deploy-risks` | 🟠 Medium | Design finding | Stop/remove/run causes downtime on every deploy; no rollback image | P3 workflow |
-| F-32 | P3 | SEC | `protect-compute` | 🟠 Medium | Design finding | No image vulnerability scan; third-party action pinned by tag, not commit SHA | P3 workflow, P9 |
+| F-31 | P3 | REL | `mit-deploy-risks` | 🟠 Medium | Design finding | Stop/remove/run causes downtime on every deploy; no rollback image | P3 workflow, P11 |
 | F-53 | Portfolio | OPS | `decomissioning-resources` | 🟠 Medium | Lesson | Resource Explorer index was stale and partial | 13, 14 |
 | F-65 | Account | SEC | `securely-operate` | 🟠 Medium | Lesson | Root console session left signed in ~12 hours | 27 |
 | F-20 | P2 | OPS | `dev-integ` | 🟡 Low | Open | P2 documentation predates portfolio conventions (no Components table, Known Limitations, teardown verification) | P2 docs |
@@ -210,19 +210,20 @@ Account · Security · Medium · Closed
 Reclassified as legitimate: Event History shows the session enabled MFA on root and on admin - root-only work. Led to F-65.
 
 **F-29 — SSH deploy from GitHub-hosted runners implies port 22 open to the internet**  
-P3 · Security · High · Design finding  
-Runner IPs are dynamic. Free fix: SSM Run Command or pull-based deploy.
+P3 · Security · High · Remediated  
+Runner IPs are dynamic. Fixed in Project 11 (verified live, then torn down): no port 22, no key pair, sshd disabled; deploys arrive only as one SSM document whose CI role can't run a shell (simulator: AWS-RunShellScript denied).
 
 **F-30 — Tested artifact is not the deployed artifact**  
-P3 · Operational Excellence, Reliability · Medium · Design finding  
-CI builds and tests an image, discards it; the server rebuilds from `git pull`.
+P3 · Operational Excellence, Reliability · Medium · Remediated  
+CI builds and tests an image, discards it; the server rebuilds from `git pull`. Fixed in Project 11 (verified live, then torn down): built once; the tested image ID equals the published digest, and the instance runs that digest (same value in SSM, Docker and the app's own response).
 
 **F-31 — Stop/remove/run causes downtime on every deploy; no rollback image**  
-P3 · Reliability · Medium · Design finding
+P3 · Reliability · Medium · Design finding  
+Half fixed in Project 11: every signed digest stays in GHCR and can be redeployed by digest (rollback). The container is still replaced in place, so a deploy still has a few seconds of downtime.
 
 **F-32 — No image vulnerability scan; third-party action pinned by tag, not commit SHA**  
-P3 · Security · Medium · Design finding  
-Project 9 pins every action to a commit SHA; container image scanning (Trivy, free) remains open for P3's design.
+P3 · Security · Medium · Remediated  
+Project 9 pins every action to a commit SHA. Fixed in Project 11 (verified live, then torn down): Trivy gate (blocked P3's own image on a fixable zlib CVE), SBOM, keyless signature, and Trivy installed as a checksum-verified binary after the March 2026 trivy-action tag hijack.
 
 **F-33 — No `permissions:` block, so GITHUB_TOKEN gets default scopes**  
 P3 · Security · Low · Remediated  

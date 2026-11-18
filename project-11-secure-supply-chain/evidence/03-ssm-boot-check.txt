@@ -1,0 +1,27 @@
+== SSM registration 2026-11-18T16:25:57Z
+== boot log (cloud-init / user data / ssm lines)
+[   68.688980] cloud-init[1950]:   Verifying        : pigz-2.5-1.amzn2023.0.4.x86_64                       10/11
+[   69.310708] cloud-init[1950]:   Verifying        : runc-1.4.3-1.amzn2023.0.3.x86_64                     11/11
+[   69.310911] cloud-init[1950]: Installed:
+[   69.311100] cloud-init[1950]:   container-selinux-4:2.245.0-1.amzn2023.noarch
+[   69.311301] cloud-init[1950]:   containerd-2.3.7-1.amzn2023.0.4.x86_64
+[   69.311523] cloud-init[1950]:   docker-25.0.18-1.amzn2023.0.4.x86_64
+[   69.311716] cloud-init[1950]:   iptables-libs-1.8.8-3.amzn2023.0.2.x86_64
+[   69.311911] cloud-init[1950]:   iptables-nft-1.8.8-3.amzn2023.0.2.x86_64
+[   69.312135] cloud-init[1950]:   libcgroup-3.0-1.amzn2023.0.1.x86_64
+[   69.312356] cloud-init[1950]:   libnetfilter_conntrack-1.0.8-2.amzn2023.0.2.x86_64
+[   69.312575] cloud-init[1950]:   libnfnetlink-1.0.1-19.amzn2023.0.2.x86_64
+[   69.312781] cloud-init[1950]:   libnftnl-1.2.2-2.amzn2023.0.2.x86_64
+[   69.313000] cloud-init[1950]:   pigz-2.5-1.amzn2023.0.4.x86_64
+[   69.313189] cloud-init[1950]:   runc-1.4.3-1.amzn2023.0.3.x86_64
+[   69.313384] cloud-init[1950]: Complete!
+[   69.600162] cloud-init[1950]: Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /usr/lib/systemd/system/docker.service.
+[   72.543103] cloud-init[1950]: /tmp/cosign: OK
+[   72.739773] cloud-init[1950]: Removed "/etc/systemd/system/multi-user.target.wants/sshd.service".
+<14>Nov 18 16:22:39 cloud-init: #############################################################
+<14>Nov 18 16:22:39 cloud-init: -----BEGIN SSH HOST KEY FINGERPRINTS-----
+<14>Nov 18 16:22:39 cloud-init: 256 SHA256:JwRHJRUsgoxwa3mWEZi3ORln+sdpv+UZP1vL+hdFd4U <EMAIL>2.internal (ECDSA)
+<14>Nov 18 16:22:39 cloud-init: 256 SHA256:u9YNyUs80MH4iuo0sDJI16fQoACe1AglT5VtQrRTDQ8 <EMAIL>2.internal (ED25519)
+<14>Nov 18 16:22:39 cloud-init: -----END SSH HOST KEY FINGERPRINTS-----
+<14>Nov 18 16:22:39 cloud-init: #############################################################
+[   73.176603] cloud-init[1950]: Cloud-init v. 22.2.2 finished at Wed, 18 Nov 2026 16:22:39 +0000. Datasource DataSourceEc2.  Up 73.16 seconds

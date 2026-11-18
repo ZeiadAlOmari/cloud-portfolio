@@ -4,15 +4,16 @@ Findings tagged **Reliability** (primary or secondary). Full register: [`../find
 
 | Status | Count |
 |---|---|
-| Remediated | 7 |
+| Remediated | 8 |
 | Cost decision | 4 |
-| Design finding | 4 |
+| Design finding | 3 |
 | Closed | 1 |
 | Strength | 1 |
 
 ## Remediated
 
 - **F-43** (P4, 🔴 High, `mitigate-interaction-failure`) — No stage throttling (0/0) - denial-of-wallet exposure combined with F-42. Stage throttling is free. Fixed in Project 10 (rebuilt, verified live, then torn down): `$default` stage at 5 requests/s, burst 10. _Evidence: 08, P10_
+- **F-30** (P3, 🟠 Medium, `dev-integ`) — Tested artifact is not the deployed artifact. CI builds and tests an image, discards it; the server rebuilds from `git pull`. Fixed in Project 11 (verified live, then torn down): built once; the tested image ID equals the published digest, and the instance runs that digest (same value in SSM, Docker and the app's own response). _Evidence: P3 workflow, P11_
 - **F-39** (P4, 🟠 Medium, `monitor-aws-resources`) — No CloudWatch alarms, not even DLQ depth. Fixed in Project 10 (rebuilt, verified live, then torn down): DLQ-depth alarm and an error alarm per function to an SNS e-mail topic; a poison message triggered the DLQ alarm and the e-mail. _Evidence: 07, 08, P10_
 - **F-44** (P4, 🟠 Medium, `prevent-interaction-failure`) — SQS visibility timeout (60s) equals process timeout (60s). AWS guidance: at least 6x the function timeout. Fixed in Project 10 (rebuilt, verified live, then torn down): 180 s visibility for a 30 s function. _Evidence: 08, P10_
 - **F-45** (P4, 🟠 Medium, `mitigate-interaction-failure`) — No `ReportBatchItemFailures` - one bad message retries the whole batch of 10. Fixed in Project 10 (rebuilt, verified live, then torn down): partial batch responses; a poison message failed alone 3 times and moved to the DLQ. _Evidence: 08, P10_
@@ -31,8 +32,7 @@ Findings tagged **Reliability** (primary or secondary). Full register: [`../find
 
 - **F-08** (P7, 🟠 Medium, `planning-for-recovery`) — RPO based on a single 26s replication sample; S3 RTC (paid) not used _Evidence: P7 docs_
 - **F-09** (P7, 🟠 Medium, `planning-for-recovery`) — One-way replication - failback is manual and has no runbook _Evidence: P7 docs_
-- **F-30** (P3, 🟠 Medium, `dev-integ`) — Tested artifact is not the deployed artifact. CI builds and tests an image, discards it; the server rebuilds from `git pull`. _Evidence: P3 workflow_
-- **F-31** (P3, 🟠 Medium, `mit-deploy-risks`) — Stop/remove/run causes downtime on every deploy; no rollback image _Evidence: P3 workflow_
+- **F-31** (P3, 🟠 Medium, `mit-deploy-risks`) — Stop/remove/run causes downtime on every deploy; no rollback image. Half fixed in Project 11: every signed digest stays in GHCR and can be redeployed by digest (rollback). The container is still replaced in place, so a deploy still has a few seconds of downtime. _Evidence: P3 workflow, P11_
 
 ## Closed
 

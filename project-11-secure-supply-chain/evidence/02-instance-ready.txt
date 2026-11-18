@@ -1,0 +1,34 @@
+== instance 2026-11-18T16:24:51Z
+---------------------------------------------------------------------------------
+|                               DescribeInstances                               |
++----------+--------------------------------------------------------------------+
+|  AZ      |  us-east-1a                                                        |
+|  HopLimit|  1                                                                 |
+|  IMDS    |  required                                                          |
+|  KeyPair |  None                                                              |
+|  Profile |  arn:aws:iam::<account>:instance-profile/p11-instance-profile   |
+|  State   |  running                                                           |
+|  Type    |  t3.micro                                                          |
++----------+--------------------------------------------------------------------+
+== security group rules
+{
+    "In": [
+        [
+            "tcp",
+            80,
+            80
+        ]
+    ],
+    "Out": [
+        [
+            "tcp",
+            443,
+            443
+        ]
+    ]
+}
+== SSM registration
+== port 22 from this laptop (expect timeout)
+port 22: no connection (closed/filtered)
+== port 80 before deploy (expect refused: firewall open, nothing listening yet)
+000
