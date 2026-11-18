@@ -230,7 +230,7 @@ Fixed in Project 9: `contents: read` by default, `id-token: write` only on the p
 
 **F-34 — Suspected failing pipeline: workflow triggers on push but its secrets are gone**  
 P3 · Operational Excellence · n/a · Closed  
-Not a gap: `ci-cd.yml` sits in `project-3-cicd-pipeline/.github/workflows/`, and GitHub only runs workflows from the repository root, so it never triggers in this repo. No change needed.
+Not a gap: `ci-cd.yml` sits in `project-03-cicd-pipeline/.github/workflows/`, and GitHub only runs workflows from the repository root, so it never triggers in this repo. No change needed.
 
 **F-35 — No IAM Access Analyzer (P6 teardown regression)**  
 Account · Security · Medium · Remediated  

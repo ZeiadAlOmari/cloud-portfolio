@@ -41,7 +41,7 @@ Findings tagged **Operational Excellence** (primary or secondary). Full register
 
 ## Closed
 
-- **F-34** (P3, 🟢 —, `mit-deploy-risks`) — Suspected failing pipeline: workflow triggers on push but its secrets are gone. Not a gap: `ci-cd.yml` sits in `project-3-cicd-pipeline/.github/workflows/`, and GitHub only runs workflows from the repository root, so it never triggers in this repo. No change needed. _Evidence: 34_
+- **F-34** (P3, 🟢 —, `mit-deploy-risks`) — Suspected failing pipeline: workflow triggers on push but its secrets are gone. Not a gap: `ci-cd.yml` sits in `project-03-cicd-pipeline/.github/workflows/`, and GitHub only runs workflows from the repository root, so it never triggers in this repo. No change needed. _Evidence: 34_
 
 ## Strength
 

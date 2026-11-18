@@ -1,8 +1,8 @@
 # Project 10: Serverless Pipeline v2
 
 Project 4's serverless data pipeline, rebuilt to fix what the
-[Project 8 Well-Architected review](../project-8-well-architected/) found wrong with it. It's deployed by the keyless
-pipeline from [Project 9](../project-9-keyless-cicd/): no AWS keys in GitHub, unit tests and a Checkov gate before
+[Project 8 Well-Architected review](../project-08-well-architected/) found wrong with it. It's deployed by the keyless
+pipeline from [Project 9](../project-09-keyless-cicd/): no AWS keys in GitHub, unit tests and a Checkov gate before
 every plan, and an apply role that can only create IAM roles carrying a permissions boundary.
 
 The original API was open to anyone, unthrottled, and ran forgotten for about 8 weeks (P8 F-36, F-42, F-43). Version 2
@@ -191,7 +191,7 @@ VPC-attached functions (would need NAT or endpoints), WAF, Lambda code signing.
 
 ```bash
 # 1. CI roles and boundary (Project 9 bootstrap stack, from a workstation with an MFA-backed session)
-cd project-9-keyless-cicd/terraform && terraform apply
+cd project-09-keyless-cicd/terraform && terraform apply
 
 # 2. Repository secrets AWS_P10_PLAN_ROLE_ARN and AWS_P10_APPLY_ROLE_ARN
 #    https://github.com/<owner>/<repo>/settings/secrets/actions

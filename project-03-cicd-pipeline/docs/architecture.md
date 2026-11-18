@@ -9,7 +9,7 @@ pipeline design, and deployment automation.
 
 ## Architecture
 
-![Architecture Diagram](https://raw.githubusercontent.com/ZeiadAlOmari/cloud-portfolio/main/project-3-cicd-pipeline/diagrams/project3-architecture.drawio.png)
+![Architecture Diagram](https://raw.githubusercontent.com/ZeiadAlOmari/cloud-portfolio/main/project-03-cicd-pipeline/diagrams/project3-architecture.drawio.png)
 
 ### Components
 
@@ -110,7 +110,7 @@ Separating test, build, and deploy ensures:
 
 ## Files
 
-    project-3-cicd-pipeline/
+    project-03-cicd-pipeline/
     ├── .github/
     │   └── workflows/
     │       └── ci-cd.yml          # GitHub Actions pipeline
@@ -132,7 +132,7 @@ Separating test, build, and deploy ensures:
 
     # 1. Clone the repository
     git clone https://github.com/ZeiadAlOmari/cloud-portfolio.git
-    cd cloud-portfolio/project-3-cicd-pipeline/terraform
+    cd cloud-portfolio/project-03-cicd-pipeline/terraform
 
     # 2. Initialize and deploy the EC2 instance
     terraform init
