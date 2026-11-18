@@ -1,8 +1,9 @@
 # Project 11: secure container supply chain for Project 3's app.
 #   pull request -> unit tests + Checkov + build once, smoke test, Trivy gate, SBOM (nothing published)
 #   push to main -> the same, then publish the exact image that was tested: push to GHCR by digest,
-#                   sign it and attach the SBOM with keyless cosign (GitHub OIDC), verify the signature.
-# Fixes Project 8 findings F-30 (tested != deployed) and F-32 (no image scan, actions pinned by tag).
+#                   sign it and attach the SBOM with keyless cosign (GitHub OIDC), verify the signature,
+#                   then deploy that digest through SSM (no SSH) while P11_DEPLOY_ENABLED is 'true'.
+# Fixes Project 8 findings F-29 (SSH deploys), F-30 (tested != deployed) and F-32 (no image scan, tag-pinned actions).
 # Every action is pinned to a full commit SHA. Trivy runs as a checksum-verified binary, not trivy-action,
 # whose tags were hijacked in March 2026. Releases are adopted only after about 14 days.
 name: P11 Supply chain
@@ -198,3 +199,56 @@ jobs:
             echo "- Signed by: \`${ID}\`"
             echo "- Signature and SBOM attestation verified ✅"
           } >> "$GITHUB_STEP_SUMMARY"
+
+  deploy-disabled:
+    name: Deploy switch is off
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.P11_DEPLOY_ENABLED != 'true'
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report that deploy was skipped
+        run: |
+          echo "::notice title=P11 not deployed::Repository variable P11_DEPLOY_ENABLED is not 'true'; deploy skipped on purpose."
+          echo "P11 deploy skipped: deploy switch P11_DEPLOY_ENABLED is off. The image is still published and signed." >> "$GITHUB_STEP_SUMMARY"
+
+  deploy:
+    name: Deploy by digest via SSM (no SSH)
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.P11_DEPLOY_ENABLED == 'true'
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # assume gha-p11-deploy through GitHub OIDC
+    env:
+      DIGEST: ${{ needs.publish.outputs.digest }}
+    steps:
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ secrets.AWS_P11_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+          role-session-name: gha-p11-deploy-${{ github.run_id }}
+          mask-aws-account-id: true
+      - name: Send the deploy document (the instance verifies the signature itself)
+        run: |
+          IID=$(aws ec2 describe-instances --filters Name=tag:Name,Values=p11-app Name=instance-state-name,Values=running \
+                --query 'Reservations[0].Instances[0].InstanceId' --output text)
+          [ "${IID}" != "None" ] && [ -n "${IID}" ] || { echo "::error::no running p11-app instance"; exit 1; }
+          CID=$(aws ssm send-command --document-name p11-deploy --instance-ids "${IID}" \
+                --parameters "Digest=${DIGEST}" --comment "P11 run ${GITHUB_RUN_ID}" --query Command.CommandId --output text)
+          echo "command ${CID} on ${IID} for ${DIGEST}"
+          for i in $(seq 1 60); do
+            STATUS=$(aws ssm get-command-invocation --command-id "${CID}" --instance-id "${IID}" --query Status --output text 2>/dev/null || echo Pending)
+            case "${STATUS}" in Pending|InProgress|Delayed) sleep 5 ;; *) break ;; esac
+          done
+          OUT=$(aws ssm get-command-invocation --command-id "${CID}" --instance-id "${IID}" --query StandardOutputContent --output text)
+          ERR=$(aws ssm get-command-invocation --command-id "${CID}" --instance-id "${IID}" --query StandardErrorContent --output text)
+          echo "${OUT}"
+          {
+            echo "## P11 deploy"
+            echo "- Digest: \`${DIGEST}\`"
+            echo "- SSM status: **${STATUS}**"
+            echo '```'
+            echo "${OUT}" | tail -n 8
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          [ "${STATUS}" = "Success" ] || { echo "${ERR}" | tail -n 20; echo "::error::deploy ${STATUS}"; exit 1; }
