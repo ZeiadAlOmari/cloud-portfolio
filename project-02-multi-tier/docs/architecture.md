@@ -9,7 +9,7 @@ deployment, and least-privilege security principles.
 
 ## Architecture
 
-![Architecture Diagram](https://raw.githubusercontent.com/ZeiadAlOmari/cloud-portfolio/main/project-2-multi-tier/diagrams/project2-architecture.drawio.png)
+![Architecture Diagram](https://raw.githubusercontent.com/ZeiadAlOmari/cloud-portfolio/main/project-02-multi-tier/diagrams/project2-architecture.drawio.png)
 
 ### Components
 
@@ -120,7 +120,7 @@ is well-supported on AWS RDS.
 
 ## Files
 
-    project-2-multi-tier/
+    project-02-multi-tier/
     ├── terraform/
     │   ├── providers.tf          # AWS provider configuration
     │   ├── networking.tf         # VPC, subnets, routing, NAT instance
@@ -141,7 +141,7 @@ is well-supported on AWS RDS.
 
     # 1. Clone the repository
     git clone https://github.com/ZeiadAlOmari/cloud-portfolio.git
-    cd cloud-portfolio/project-2-multi-tier/terraform
+    cd cloud-portfolio/project-02-multi-tier/terraform
 
     # 2. Generate an SSH key (if you don't have one)
     ssh-keygen -t rsa -b 4096

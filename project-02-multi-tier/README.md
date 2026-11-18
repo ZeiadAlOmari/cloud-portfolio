@@ -4,7 +4,7 @@ A three-tier web application deployed on AWS with proper network isolation, secu
 
 ## Architecture
 
-![Architecture Diagram](https://raw.githubusercontent.com/ZeiadAlOmari/cloud-portfolio/main/project-2-multi-tier/diagrams/project2-architecture.drawio.png)
+![Architecture Diagram](https://raw.githubusercontent.com/ZeiadAlOmari/cloud-portfolio/main/project-02-multi-tier/diagrams/project2-architecture.drawio.png)
 
 ## Overview
 

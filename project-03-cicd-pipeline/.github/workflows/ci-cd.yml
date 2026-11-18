@@ -4,14 +4,14 @@ on:
   push:
     branches: [main]
     paths:
-      - "project-3-cicd-pipeline/**"
+      - "project-03-cicd-pipeline/**"
   pull_request:
     branches: [main]
     paths:
-      - "project-3-cicd-pipeline/**"
+      - "project-03-cicd-pipeline/**"
 
 env:
-  APP_DIR: project-3-cicd-pipeline/app
+  APP_DIR: project-03-cicd-pipeline/app
 
 jobs:
   # -----------------------------------------------
@@ -107,7 +107,7 @@ jobs:
             sudo git pull origin main
 
             # Rebuild and restart container
-            cd project-3-cicd-pipeline/app
+            cd project-03-cicd-pipeline/app
             sudo docker build -t cicd-demo .
             sudo docker stop cicd-app || true
             sudo docker rm cicd-app || true

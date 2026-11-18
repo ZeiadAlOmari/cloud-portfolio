@@ -5,7 +5,7 @@ through OpenID Connect (OIDC) and gets short-lived credentials for each run. Eve
 before Terraform touches AWS. Pull requests can only *plan* with a read-only role; only `main` can *apply*, with a role
 scoped to Project 1.
 
-This project fixes findings from the [Project 8 Well-Architected review](../project-8-well-architected/): static
+This project fixes findings from the [Project 8 Well-Architected review](../project-08-well-architected/): static
 CI keys (F-23), tag-pinned actions (F-32), default token permissions (F-33), missing bucket versioning (F-57), and
 the absence of anything that would have stopped the public bucket (F-04) before deployment.
 
@@ -146,11 +146,11 @@ for the state bucket.
 
 ```bash
 # 1. Bootstrap (once, from a workstation with an MFA-backed session)
-cd project-9-keyless-cicd/terraform
+cd project-09-keyless-cicd/terraform
 terraform init && terraform plan -out=bootstrap.tfplan && terraform apply bootstrap.tfplan
 
 # 2. Move Project 1's state to S3 (add backend.tf, then)
-cd ../../project-1-static-site/terraform && terraform init -migrate-state
+cd ../../project-01-static-site/terraform && terraform init -migrate-state
 
 # 3. GitHub: add repository secrets AWS_PLAN_ROLE_ARN and AWS_APPLY_ROLE_ARN
 #    https://github.com/<owner>/<repo>/settings/secrets/actions
@@ -158,10 +158,10 @@ cd ../../project-1-static-site/terraform && terraform init -migrate-state
 #    https://github.com/<owner>/<repo>/settings/rules
 
 # 5. Local check before pushing
-checkov --framework terraform --compact --quiet -d project-1-static-site/terraform
+checkov --framework terraform --compact --quiet -d project-01-static-site/terraform
 
 # 6. Publish evidence without the account ID
-bash project-9-keyless-cicd/scripts/sanitize-evidence.sh
+bash project-09-keyless-cicd/scripts/sanitize-evidence.sh
 ```
 
 ## What I Learned

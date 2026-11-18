@@ -9,7 +9,7 @@ DNS-ready architecture, and reproducible deployments.
 
 ## Architecture
 
-![Architecture Diagram](https://raw.githubusercontent.com/ZeiadAlOmari/cloud-portfolio/main/project-1-static-site/diagrams/project1-architecture.drawio.png)
+![Architecture Diagram](https://raw.githubusercontent.com/ZeiadAlOmari/cloud-portfolio/main/project-01-static-site/diagrams/project1-architecture.drawio.png)
 
 ### Components
 
@@ -79,7 +79,7 @@ within the free tier. A custom domain can be added later.
 
 ## Files
 
-    project-1-static-site/
+    project-01-static-site/
     ├── terraform/
     │   ├── providers.tf      # AWS provider configuration
     │   ├── s3.tf             # S3 bucket, policy, and website hosting
@@ -96,7 +96,7 @@ within the free tier. A custom domain can be added later.
 
     # 1. Clone the repository
     git clone https://github.com/ZeiadAlOmari/cloud-portfolio.git
-    cd cloud-portfolio/project-1-static-site/terraform
+    cd cloud-portfolio/project-01-static-site/terraform
 
     # 2. Initialize Terraform
     terraform init
@@ -123,7 +123,7 @@ within the free tier. A custom domain can be added later.
 
 ## Project 8 Update (2026-10-26)
 
-The [Project 8 Well-Architected review](../project-8-well-architected/) found the bucket publicly readable,
+The [Project 8 Well-Architected review](../project-08-well-architected/) found the bucket publicly readable,
 so CloudFront could be bypassed (F-04), and the CloudFront-to-S3 hop on plain HTTP (F-05). Changes, all free:
 
 | Before | After |

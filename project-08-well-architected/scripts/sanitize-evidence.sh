@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Copy evidence/raw/* (git-ignored) to evidence/ with account identifiers redacted.
-# Usage: bash scripts/sanitize-evidence.sh   (run from project-8-well-architected/)
+# Usage: bash scripts/sanitize-evidence.sh   (run from project-08-well-architected/)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 python3 - <<'PY'

@@ -4,7 +4,7 @@ A fully automated CI/CD pipeline that builds, tests, and deploys a containerized
 
 ## Architecture
 
-![Architecture Diagram](https://raw.githubusercontent.com/ZeiadAlOmari/cloud-portfolio/main/project-3-cicd-pipeline/diagrams/project3-architecture.drawio.png)
+![Architecture Diagram](https://raw.githubusercontent.com/ZeiadAlOmari/cloud-portfolio/main/project-03-cicd-pipeline/diagrams/project3-architecture.drawio.png)
 
 ## Overview
 

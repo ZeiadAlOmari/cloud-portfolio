@@ -69,7 +69,7 @@ Response:
 
 ## Project Structure
 
-    project-4-serverless-pipeline/
+    project-04-serverless-pipeline/
       terraform/
         providers.tf       - AWS provider configuration
         lambda.tf          - Lambda functions + IAM role/policy

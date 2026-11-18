@@ -78,7 +78,7 @@ resource "aws_instance" "cicd" {
     git clone https://github.com/ZeiadAlOmari/cloud-portfolio.git app
 
     # Build and run the container
-    cd /opt/app/project-3-cicd-pipeline/app
+    cd /opt/app/project-03-cicd-pipeline/app
     docker build -t cicd-demo .
     docker run -d --name cicd-app -p 80:5000 --restart always cicd-demo
   EOF

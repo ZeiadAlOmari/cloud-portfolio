@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Project 8 - apply Well-Architected answers and create milestones.
 
-Usage (from project-8-well-architected/):
+Usage (from project-08-well-architected/):
   python3 wa-tool/scripts/wa_apply.py baseline   # set all answers (pre-remediation), create Milestone 1
   python3 wa-tool/scripts/wa_apply.py post       # apply post-remediation changes, create Milestone 2, export PDFs
 """
