@@ -21,7 +21,7 @@ message exactly once, raises an alarm when data is rejected, and was **torn down
 | A hidden failure in the pipeline was found, explained and fixed (see Design Decisions) | [02](evidence/02-api-404-diagnosis.txt)–[05](evidence/05-stage-calls.txt) |
 | **13 Project 8 findings fixed** in the design (table below) | |
 | 35 resources destroyed, then confirmed **0** by direct AWS CLI queries | [10](evidence/10-teardown.txt), [11](evidence/11-teardown-verify.txt) |
-| A **deploy switch** keeps it down: merges to `main` skip apply while `P10_DEPLOY_ENABLED` is off | Run #7 below |
+| A **deploy switch** keeps it down: merges to `main` skip apply while `P10_DEPLOY_ENABLED` is off | [12 (screenshot)](evidence/12-deploy-switch-off.png) |
 
 ### Project 8 findings fixed
 
@@ -154,7 +154,7 @@ topic at teardown.
 | X-Ray | 12 traces, no errors or faults |
 | Unit tests | 5 passed (pytest + moto) |
 | Checkov | P10: 109 passed, 0 failed, 27 skipped (per resource instance). Bootstrap: 146 passed, 0 failed, 6 skipped |
-| Deploy switch | Run #7 (merge of the workflow change, switch `false`): tests and Checkov passed, apply skipped, AWS still empty |
+| Deploy switch | Run #7 (merge of the workflow change, switch `false`): tests and Checkov passed, "Deploy switch is off" ran, apply skipped; Lambda, API and DynamoDB still 0 afterwards ([12](evidence/12-deploy-switch-off.png)) |
 | Teardown | `Destroy complete! Resources: 35 destroyed`; state empty; Lambda, ESM, DynamoDB, SQS, API, SNS, alarms, log groups and `p10-*` roles all **0** ([10](evidence/10-teardown.txt), [11](evidence/11-teardown-verify.txt)) |
 
 ## Cost Analysis
